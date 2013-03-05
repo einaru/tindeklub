@@ -6,9 +6,11 @@
 :license: GNU General Public License (GPL) v3 or later
 """
 from flask import Flask, render_template
-from flask.ext.babel import Babel, gettext as _
 from flask_openid import OpenID
+from flaskext.babel import Babel, gettext as _
+from flaskext.markdown import Markdown
 from tindeklub.gear.models import Gear
+from tindeklub.blog.models import Post
 
 
 app = Flask(__name__)
@@ -19,28 +21,32 @@ app.config.update(
 
 babel = Babel(app)
 oid = OpenID(app)
+Markdown(app)
+
+
+@app.template_filter("friendlytime")
+def friendlytime(dt):
+    return dt.strftime("%A, %M %d, %Y")
+
+
+@app.template_filter("shortisotime")
+def shortisotime(dt):
+    return dt.strftime("%Y-%m-%d")
 
 
 @app.route("/")
 def home():
     latest_gear = Gear.query.order_by("date_added").limit(5)
-    navigation = [
-        dict(caption=_("Home"), href="/", active=True),
-        dict(caption=_("Blog"), href="#"),
-        dict(caption=_("Gear"), href="/gear"),
-        dict(caption=_("Routes"), href="#"),
-        dict(caption=_("Tips"), href="#"),
-        dict(caption=_("Login"), href="/user/login"),
-    ]
-        
-
+    latest_posts = Post.query.order_by("date_created").limit(5)
     return render_template("home.html",
-                           navigation=navigation,
-                           latest_gear=latest_gear)
+                           latest_gear=latest_gear,
+                           latest_posts=latest_posts)
 
 
 from tindeklub.user.views import mod as UserModule
 from tindeklub.gear.views import mod as GearModule
+from tindeklub.blog.views import mod as BlogModule
 
-app.register_blueprint(UserModule)
-app.register_blueprint(GearModule)
+app.register_blueprint(UserModule, url_prefix="/user")
+app.register_blueprint(GearModule, url_prefix="/gear")
+app.register_blueprint(BlogModule, url_prefix="/blog")

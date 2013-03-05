@@ -1,0 +1,24 @@
+{# blog/new_post.html #}
+{# vim: set ts=2 sw=2 noai syntax=jinja: #}
+{% extends "layout.html" %}
+{% block content %}
+
+{% for message in get_flashed_messages() %}
+	<p>{{ message }}</p>
+{% endfor %}
+
+<form action="/blog/post/new" method="post">
+	<input type="text" name="title" placeholder="{{ _("Title") }}"><br>
+	<input type="text" name="tags" placeholder="{{ _("Tags") }}"><br>
+	<textarea name="body"></textarea>
+	<label for="category">Category</label>
+	<select name="category">
+		<option value="climbing">Climbing</option>
+		{% for category in categories %}
+			<option value="{{ category.name }}">{{ category.name }}</option>
+		{% endfor %}
+	</select><br>
+	<button type="submit">{{ _("Add post") }}</button>
+</form>
+
+{% endblock %}
