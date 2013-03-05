@@ -7,6 +7,7 @@
 """
 from flask import (Blueprint, request, render_template, flash, g, session, 
                   redirect, url_for)
+from flaskext.babel import gettext as _
 from tindeklub import oid
 from tindeklub.database import db_session
 from tindeklub.user.models import User
@@ -80,11 +81,11 @@ def create_profile():
         name = request.form['name']
         email = request.form['email']
         if not name:
-            flash(u'Error: you have to provide a name')
+            flash(_('Error: you have to provide a name'))
         elif '@' not in email:
-            flash(u'Error: you have to enter a valid email address')
+            flash(_('Error: you have to enter a valid email address'))
         else:
-            flash(u'Profile successfully created')
+            flash(_('Profile successfully created'))
             db_session.add(User(name, email, session['openid']))
             db_session.commit()
             return redirect(oid.get_next_url())
