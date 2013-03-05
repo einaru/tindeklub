@@ -1,0 +1,119 @@
+# Norwegian translations for Øya Tindeklub.
+# Copyright (C) 2013 ORGANIZATION
+# This file is distributed under the same license as the Øya Tindeklub
+# project.
+# FIRST AUTHOR <einar.uvslokk@gmail.com>, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Øya Tindeklub 0.1\n"
+"Report-Msgid-Bugs-To: einar.uvslokk@gmail.com\n"
+"POT-Creation-Date: 2013-03-05 03:59+0100\n"
+"PO-Revision-Date: 2013-03-05 02:01+0100\n"
+"Last-Translator: Einar Uvsløkk <einar.uvslokk@gmail.com>\n"
+"Language-Team: no <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 0.9.6\n"
+
+#: gear/__init__.py:77
+msgid "Successfully signed in"
+msgstr "Logget inn"
+
+#: gear/__init__.py:100
+msgid "Error: you must provide a name"
+msgstr "Feil: du må oppgi et navn"
+
+#: gear/__init__.py:102
+msgid "Error: you have not entered a valid email address"
+msgstr "Feil: du har ikke oppgitt en gyldig epost adresse"
+
+#: gear/__init__.py:104
+msgid "Profile successfully created"
+msgstr "Profilen er opprettet"
+
+#: gear/__init__.py:114
+msgid "You have been successfully signed out"
+msgstr "Du har blitt logget ut"
+
+#: gear/templates/create_profile.html:5 gear/templates/layout.html:7
+#: gear/templates/layout.html:30 gear/templates/login.html:5
+msgid "Rock Climbing"
+msgstr "Fjell klatring"
+
+#: gear/templates/create_profile.html:5 gear/templates/login.html:5
+#: gear/templates/login.html:25
+msgid "Sign in"
+msgstr "Logg inn"
+
+#: gear/templates/create_profile.html:17 gear/templates/create_profile.html:30
+msgid "Create profile"
+msgstr "Opprett profil"
+
+#: gear/templates/create_profile.html:19
+msgid ""
+"Hey! This is the first time you signed into this website. In order to "
+"proceed we need some extra information from you:"
+msgstr "Heisann! Det er første gang du logger inn på denne nettsiden. For å fortsette trenger vi litt ekstra informasjon fra deg:"
+
+#: gear/templates/gear_list.html:12
+msgid "Id"
+msgstr "Id"
+
+#: gear/templates/gear_list.html:13
+msgid "Manufacturer"
+msgstr "Produsent"
+
+#: gear/templates/gear_list.html:14
+msgid "Name"
+msgstr "Navn"
+
+#: gear/templates/gear_list.html:15
+msgid "Category"
+msgstr "Kategori"
+
+#: gear/templates/gear_list.html:16
+msgid "Date of purchase"
+msgstr "Kjøpsdato"
+
+#: gear/templates/layout.html:35
+msgid "Home"
+msgstr "Hjem"
+
+#: gear/templates/layout.html:36
+msgid "Gear"
+msgstr "Utstyr"
+
+#: gear/templates/layout.html:37
+msgid "Routes"
+msgstr "Ruter"
+
+#: gear/templates/layout.html:38
+msgid "Tips"
+msgstr "Tips"
+
+#: gear/templates/layout.html:39
+msgid "About"
+msgstr "Om"
+
+#: gear/templates/layout.html:56
+msgid "Copyright"
+msgstr "Opphavsrett"
+
+#: gear/templates/layout.html:57
+msgid "All Rights Reserved"
+msgstr "Alle rettigheter reservert"
+
+#: gear/templates/login.html:18
+msgid "Please sign in"
+msgstr "Vennligst logg inn"
+
+#: gear/templates/login.html:24
+msgid "OpenID"
+msgstr "OpenID"
+
+#~ msgid "Login"
+#~ msgstr ""
+

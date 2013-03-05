@@ -1,0 +1,115 @@
+# Translations template for PROJECT.
+# Copyright (C) 2013 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2013-03-05 03:59+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 0.9.6\n"
+
+#: gear/__init__.py:77
+msgid "Successfully signed in"
+msgstr ""
+
+#: gear/__init__.py:100
+msgid "Error: you must provide a name"
+msgstr ""
+
+#: gear/__init__.py:102
+msgid "Error: you have not entered a valid email address"
+msgstr ""
+
+#: gear/__init__.py:104
+msgid "Profile successfully created"
+msgstr ""
+
+#: gear/__init__.py:114
+msgid "You have been successfully signed out"
+msgstr ""
+
+#: gear/templates/create_profile.html:5 gear/templates/layout.html:7
+#: gear/templates/layout.html:30 gear/templates/login.html:5
+msgid "Rock Climbing"
+msgstr ""
+
+#: gear/templates/create_profile.html:5 gear/templates/login.html:5
+#: gear/templates/login.html:25
+msgid "Sign in"
+msgstr ""
+
+#: gear/templates/create_profile.html:17 gear/templates/create_profile.html:30
+msgid "Create profile"
+msgstr ""
+
+#: gear/templates/create_profile.html:19
+msgid ""
+"Hey! This is the first time you signed into this website. In order to "
+"proceed we need some extra information from you:"
+msgstr ""
+
+#: gear/templates/gear_list.html:12
+msgid "Id"
+msgstr ""
+
+#: gear/templates/gear_list.html:13
+msgid "Manufacturer"
+msgstr ""
+
+#: gear/templates/gear_list.html:14
+msgid "Name"
+msgstr ""
+
+#: gear/templates/gear_list.html:15
+msgid "Category"
+msgstr ""
+
+#: gear/templates/gear_list.html:16
+msgid "Date of purchase"
+msgstr ""
+
+#: gear/templates/layout.html:35
+msgid "Home"
+msgstr ""
+
+#: gear/templates/layout.html:36
+msgid "Gear"
+msgstr ""
+
+#: gear/templates/layout.html:37
+msgid "Routes"
+msgstr ""
+
+#: gear/templates/layout.html:38
+msgid "Tips"
+msgstr ""
+
+#: gear/templates/layout.html:39
+msgid "About"
+msgstr ""
+
+#: gear/templates/layout.html:56
+msgid "Copyright"
+msgstr ""
+
+#: gear/templates/layout.html:57
+msgid "All Rights Reserved"
+msgstr ""
+
+#: gear/templates/login.html:18
+msgid "Please sign in"
+msgstr ""
+
+#: gear/templates/login.html:24
+msgid "OpenID"
+msgstr ""
+

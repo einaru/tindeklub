@@ -1,0 +1,35 @@
+{# gear_list.html #}
+{# vim: set ts=2 sw=2 noai syntax=jinja: #}
+{% extends "layout.html" %}
+
+{% block site_content %}
+
+<section id="gear-list">
+
+	<table class="table table-condensed table-hover">
+		<thead>
+			<tr>
+        <th>{{ _("Id") }}</th>
+        <th>{{ _("Manufacturer") }}</th>
+        <th>{{ _("Name") }}</th>
+        <th>{{ _("Category") }}</th>
+        <th>{{ _("Date of purchase") }}</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for item in gear_list %}
+				<tr>
+					<td>{{ item.id }}</td>
+					<td>{{ item.manufacturer }}</td>
+					<td>{{ item.name }}</td>
+					<td>{{ item.category }}</td>
+					<td>{{ item.date_of_purchase.strftime('%Y-%m-%d') }}</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+</section>
+
+{% endblock %}
+

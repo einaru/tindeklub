@@ -10,6 +10,19 @@ from sqlalchemy import (Column, Integer, String, DateTime, ForeignKey, Float,
 from gear.database import Base
 
 
+class User(Base):
+    __tablename__ = "user"
+    id = Column(Integer, primary_key=True)
+    name = Column(String(60))
+    email = Column(String(200))
+    openid = Column(String(200))
+
+    def __init__(self, name, email, openid):
+        self.name = name
+        self.email = email
+        self.openid = openid
+
+
 class Gear(Base):
     __tablename__ = "gear"
     id = Column(Integer, primary_key=True)

@@ -1,0 +1,70 @@
+{# layout.html #}
+{# vim: set ts=2 sw=2 noai syntax=jinja: #}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+    <title>Einar Uvsløkk | {{ _("Rock Climbing") }}</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="author" content="Einar Uvsløkk">
+		<meta name="description" content="Rock climbing gear list">
+
+		{# Stylesheets #}
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-responsive.min.css') }}">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="{{ url_for('static', filename='js/html5shiv.js') }}"></script>
+    <![endif]-->
+
+	</head>
+	<body>
+
+		<div class="container">
+
+      {% block container %}
+
+        <div class="masthead">
+          <h3 class="muted">{{ _("Rock Climbing") }}</h3>
+          <div class="navbar">
+            <div class="navbar-inner">
+              <div class="container">
+                <ul class="nav">
+                  <li><a href="#">{{ _("Home") }}</a></li>
+                  <li class="active"><a href="/">{{ _("Gear") }}</a></li>
+                  <li><a href="#">{{ _("Routes") }}</a></li>
+                  <li><a href="#">{{ _("Tips") }}</a></li>
+                  <li><a href="#">{{ _("About") }}</a></li>
+                </ul>
+              </div>
+            </div>
+          </div> {# .navbar #}
+        </div> {# .masthead #}
+
+        <div class="content">
+
+          {% block site_content %}
+
+          {% endblock %}
+
+        </div> {# .content #}
+
+        <footer class="site-footer">
+          <p>
+            {{ _("Copyright") }} &copy; Einar Uvsløkk<br>
+            {{ _("All Rights Reserved") }}
+          </p>
+        </footer>
+
+      {% endblock %}
+
+		</div> {# .container #}
+
+		{# Javascript #}
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+
+	</body>
+</html>
