@@ -1,20 +1,44 @@
-# Climbing
+# Øya Tindeklub
 
-Climbing is a digital personal portal for climbers. It features a gear database,
-route database, logbook, blog and more.
-
-## Technologies
-
-Climbing is open source, and uses only open source technologies:
-
-* [Python](http://www.python.org/) >= 2.7 
-* [Flask](http://flask.pocoo.org/) >= 0.9
-  * [Flask-Assets](https://pypi.python.org/pypi/Flask-Assets) >= 0.8
-  * [Flask-Babel](https://pypi.python.org/pypi/Flask-Babel) >= 0.8
+*Øya Tindeklub* is the digital portal for my rock climbing activity.
 
 
-## Copyright
+## Features
+
+Currently features include:
+
+* *Gear database* - App for storing data about climbing gear in a searchable
+  database. Useful for keeping track of your rock climbing gear, the aging and
+	wearing of the the gear, etc.
+
+
+### Planned features
+
+The following features are planned:
+
+* *Route database* - App for storing details of climbed routes.
+* *Rock climbing tips & techniques* - App for gathering different rock climbing
+  tips and techniques. Possibly in a blog-like fashion.
+
+
+## Dependencies
+
+* [Python](http://www.python.org/)
+* [SQLAlchemy](http://www.sqlalchemy.org/)
+* [Flask](http://flask.pocoo.org/)
+* [Flask-Babel](http://pythonhosted.org/Flask-Babel/)
+* [Flask-OpenID](http://pythonhosted.org/Flask-OpenID/)
+
+
+
+## Author
 
 [Einar Uvsløkk](mailto:einar.uvslokk@gmail.com)
 
 
+## License
+
+[GNU General Public License (GPL)](http://www.gnu.org/licenses/gpl) v3 or later.
+
+
+<!--- vim: set ts=2 sw=2 tw=80: -->

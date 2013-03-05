@@ -1,6 +1,7 @@
 require 'rake'
 
-task :gear do
-	system "sass --watch gear/static/scss/style.scss:gear/static/css/style.css \
+task :watch do
+	system "sass --watch \
+			tindeklub/static/scss/style.scss:tindeklub/static/css/style.css \
 	        --style compressed"
 end

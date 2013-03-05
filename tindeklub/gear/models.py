@@ -5,22 +5,10 @@
 :copyright: (c) 2013 Einar Uvsløkk
 :license: GNU General Public License (GPL) v3 or later
 """
+from datetime import datetime
 from sqlalchemy import (Column, Integer, String, DateTime, ForeignKey, Float,
                        Text)
-from gear.database import Base
-
-
-class User(Base):
-    __tablename__ = "user"
-    id = Column(Integer, primary_key=True)
-    name = Column(String(60))
-    email = Column(String(200))
-    openid = Column(String(200))
-
-    def __init__(self, name, email, openid):
-        self.name = name
-        self.email = email
-        self.openid = openid
+from tindeklub.database import Base
 
 
 class Gear(Base):
@@ -30,6 +18,7 @@ class Gear(Base):
     name = Column(String(255))
     category = Column(String(50))
 
+    date_added = Column(DateTime, default=datetime.now)
     date_of_purchase = Column(DateTime)
     date_of_first_use = Column(DateTime)
     note = Column(Text)

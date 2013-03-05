@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 
 def runserver(**kwargs):
-    from gear import app
-    from gear.database import init_db
+    from tindeklub import app
+    from tindeklub.database import init_db
     init_db()
     app.run(**kwargs)
 

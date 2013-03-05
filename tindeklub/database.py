@@ -10,7 +10,7 @@ from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
 
-engine = create_engine("sqlite:///gear.db", convert_unicode=True)
+engine = create_engine("sqlite:///tindeklub.db", convert_unicode=True)
 db_session = scoped_session(sessionmaker(autocommit=False,
                                          autoflush=False,
                                          bind=engine))
@@ -23,5 +23,6 @@ def init_db():
     """Imports all modules that define models, so that they will be
     registered properly on the metadata.
     """
-    import gear.models
+    import tindeklub.user.models
+
     Base.metadata.create_all(bind=engine)

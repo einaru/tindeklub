@@ -2,7 +2,7 @@
 {# vim: set ts=2 sw=2 noai syntax=jinja: #}
 {% extends "layout.html" %}
 
-{% block site_content %}
+{% block content %}
 
 <section id="gear-list">
 
@@ -23,7 +23,11 @@
 					<td>{{ item.manufacturer }}</td>
 					<td>{{ item.name }}</td>
 					<td>{{ item.category }}</td>
-					<td>{{ item.date_of_purchase.strftime('%Y-%m-%d') }}</td>
+					{% if item.date_of_purchase is not none -%}
+						<td>{{ item.date_of_purchase.strftime('%Y-%m-%d') }}</td>
+					{% else %}
+						<td>?</td>
+					{%- endif %}
 				</tr>
 			{% endfor %}
 		</tbody>

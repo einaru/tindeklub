@@ -1,0 +1,53 @@
+{# gear_item.html #}
+{# vim: set ts=2 sw=2 noai syntax=jinja: #}
+{% extends "layout.html" %}
+
+{% block content %}
+
+<section class="gear-item">
+
+	<a href="">{{ _("Gear") }} #{{ gear.id }}</a>
+
+	<h3>{{ gear.manufacturer }} - {{ gear.name }}</h3>
+
+	<div class="row-fluid">
+
+		<div class="span6">
+			<table class="table table-hover table-bordered">
+				<tbody>
+					<tr>
+						<td><strong>{{ _("Weight") }}</strong></td>
+						<td>{{ gear.weight }} <span class="unit">g</span></td>
+					</tr>
+					<tr>
+						<td><strong>{{ _("Major axis") }}</strong></td>
+						<td>{{ gear.major_axis_strength }} <span class="unit">kN</span></td>
+					</tr>
+					<tr>
+						<td><strong>{{ _("Minor axis") }}</strong></td>
+						<td>{{ gear.minor_axis_strength }} <span class="unit">kN</span></td>
+					</tr>
+					<tr>
+						<td><strong>{{ _("Open gate") }}</strong></td>
+						<td>{{ gear.open_gate_strength }} <span class="unit">kN</span></td>
+					</tr>
+					<tr>
+						<td><strong>{{ _("Gate opening") }}</strong></td>
+						<td>{{ gear.gate_opening }} <span class="unit">mm</span></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="span6">
+			<h4>{{ _("Note:") }}</h4>
+			<p>
+				{{ gear.note }}
+			</p>
+		</div>
+
+	</div>
+
+</section>
+
+{% endblock %}
