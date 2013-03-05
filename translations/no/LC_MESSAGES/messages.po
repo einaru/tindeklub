@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Øya Tindeklub 0.1\n"
 "Report-Msgid-Bugs-To: einar.uvslokk@gmail.com\n"
-"POT-Creation-Date: 2013-03-05 03:59+0100\n"
+"POT-Creation-Date: 2013-03-05 19:16+0100\n"
 "PO-Revision-Date: 2013-03-05 02:01+0100\n"
 "Last-Translator: Einar Uvsløkk <einar.uvslokk@gmail.com>\n"
 "Language-Team: no <LL@li.org>\n"
@@ -18,102 +18,166 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.6\n"
 
-#: gear/__init__.py:77
-msgid "Successfully signed in"
-msgstr "Logget inn"
-
-#: gear/__init__.py:100
-msgid "Error: you must provide a name"
-msgstr "Feil: du må oppgi et navn"
-
-#: gear/__init__.py:102
-msgid "Error: you have not entered a valid email address"
-msgstr "Feil: du har ikke oppgitt en gyldig epost adresse"
-
-#: gear/__init__.py:104
-msgid "Profile successfully created"
-msgstr "Profilen er opprettet"
-
-#: gear/__init__.py:114
-msgid "You have been successfully signed out"
-msgstr "Du har blitt logget ut"
-
-#: gear/templates/create_profile.html:5 gear/templates/layout.html:7
-#: gear/templates/layout.html:30 gear/templates/login.html:5
-msgid "Rock Climbing"
-msgstr "Fjell klatring"
-
-#: gear/templates/create_profile.html:5 gear/templates/login.html:5
-#: gear/templates/login.html:25
-msgid "Sign in"
-msgstr "Logg inn"
-
-#: gear/templates/create_profile.html:17 gear/templates/create_profile.html:30
-msgid "Create profile"
-msgstr "Opprett profil"
-
-#: gear/templates/create_profile.html:19
-msgid ""
-"Hey! This is the first time you signed into this website. In order to "
-"proceed we need some extra information from you:"
-msgstr "Heisann! Det er første gang du logger inn på denne nettsiden. For å fortsette trenger vi litt ekstra informasjon fra deg:"
-
-#: gear/templates/gear_list.html:12
-msgid "Id"
-msgstr "Id"
-
-#: gear/templates/gear_list.html:13
-msgid "Manufacturer"
-msgstr "Produsent"
-
-#: gear/templates/gear_list.html:14
-msgid "Name"
-msgstr "Navn"
-
-#: gear/templates/gear_list.html:15
-msgid "Category"
-msgstr "Kategori"
-
-#: gear/templates/gear_list.html:16
-msgid "Date of purchase"
-msgstr "Kjøpsdato"
-
-#: gear/templates/layout.html:35
+#: tindeklub/__init__.py:28 tindeklub/templates/home.html:5
 msgid "Home"
 msgstr "Hjem"
 
-#: gear/templates/layout.html:36
+#: tindeklub/__init__.py:29
+msgid "Blog"
+msgstr "Blogg"
+
+#: tindeklub/__init__.py:30 tindeklub/templates/gear/show_carabiner.html:9
 msgid "Gear"
 msgstr "Utstyr"
 
-#: gear/templates/layout.html:37
+#: tindeklub/__init__.py:31
 msgid "Routes"
 msgstr "Ruter"
 
-#: gear/templates/layout.html:38
+#: tindeklub/__init__.py:32
 msgid "Tips"
 msgstr "Tips"
 
-#: gear/templates/layout.html:39
-msgid "About"
-msgstr "Om"
+#: tindeklub/__init__.py:33
+msgid "Login"
+msgstr "Logg inn"
 
-#: gear/templates/layout.html:56
+#: tindeklub/templates/home.html:5
+#: tindeklub/templates/user/create_profile.html:5
+#: tindeklub/templates/user/login.html:5
+msgid "Rock Climbing"
+msgstr "Fjell klatring"
+
+#: tindeklub/templates/home.html:16
+msgid "Latest gear"
+msgstr "Nyeste utstyr"
+
+#: tindeklub/templates/home.html:20 tindeklub/templates/gear/gear_list.html:13
+msgid "Manufacturer"
+msgstr "Produsent"
+
+#: tindeklub/templates/home.html:21 tindeklub/templates/gear/gear_list.html:14
+msgid "Name"
+msgstr "Navn"
+
+#: tindeklub/templates/home.html:22
+msgid "Date added"
+msgstr "Dato lagt til"
+
+#: tindeklub/templates/home.html:35
+msgid "No gear added"
+msgstr "Ingen utstyr lagt til"
+
+#: tindeklub/templates/home.html:41
+msgid "View more gear"
+msgstr "Se mer utstyr"
+
+#: tindeklub/templates/home.html:48
+msgid "Latest routes"
+msgstr "Nyeste ruter"
+
+#: tindeklub/templates/home.html:53
+msgid "No routes added"
+msgstr "Ingen ruter lagt til"
+
+#: tindeklub/templates/home.html:56
+msgid "View more routes"
+msgstr "Se flere ruter"
+
+#: tindeklub/templates/home.html:63
+msgid "Latest Tips"
+msgstr "Nyeste tips"
+
+#: tindeklub/templates/home.html:68
+msgid "No tips added"
+msgstr "Ingen tips lagt til"
+
+#: tindeklub/templates/home.html:71
+msgid "View more tips"
+msgstr "Se flere tips"
+
+#: tindeklub/templates/layout.html:7 tindeklub/templates/layout.html:40
+msgid "Climbing"
+msgstr "Klatring"
+
+#: tindeklub/templates/layout.html:55
 msgid "Copyright"
 msgstr "Opphavsrett"
 
-#: gear/templates/layout.html:57
+#: tindeklub/templates/layout.html:56
 msgid "All Rights Reserved"
 msgstr "Alle rettigheter reservert"
 
-#: gear/templates/login.html:18
+#: tindeklub/templates/gear/gear_list.html:12
+msgid "Id"
+msgstr "Id"
+
+#: tindeklub/templates/gear/gear_list.html:15
+msgid "Category"
+msgstr "Kategori"
+
+#: tindeklub/templates/gear/gear_list.html:16
+msgid "Date of purchase"
+msgstr "Kjøpsdato"
+
+#: tindeklub/templates/gear/show_carabiner.html:19
+msgid "Weight"
+msgstr "Vekt"
+
+#: tindeklub/templates/gear/show_carabiner.html:23
+msgid "Major axis"
+msgstr ""
+
+#: tindeklub/templates/gear/show_carabiner.html:27
+msgid "Minor axis"
+msgstr ""
+
+#: tindeklub/templates/gear/show_carabiner.html:31
+msgid "Open gate"
+msgstr "Åpen gate"
+
+#: tindeklub/templates/gear/show_carabiner.html:35
+msgid "Gate opening"
+msgstr "Åpning"
+
+#: tindeklub/templates/gear/show_carabiner.html:43
+msgid "Note:"
+msgstr "Notater:"
+
+#: tindeklub/templates/user/create_profile.html:5
+#: tindeklub/templates/user/login.html:5 tindeklub/templates/user/login.html:25
+msgid "Sign in"
+msgstr "Logg inn"
+
+#: tindeklub/templates/user/create_profile.html:17
+#: tindeklub/templates/user/create_profile.html:30
+msgid "Create profile"
+msgstr "Opprett profil"
+
+#: tindeklub/templates/user/create_profile.html:19
+msgid ""
+"Hey! This is the first time you signed into this website. In order to "
+"proceed we need some extra information from you:"
+msgstr ""
+"Heisann! Det er første gang du logger inn på denne nettsiden. For å "
+"fortsette trenger vi litt ekstra informasjon fra deg:"
+
+#: tindeklub/templates/user/login.html:18
 msgid "Please sign in"
 msgstr "Vennligst logg inn"
 
-#: gear/templates/login.html:24
+#: tindeklub/templates/user/login.html:24
 msgid "OpenID"
 msgstr "OpenID"
 
-#~ msgid "Login"
-#~ msgstr ""
+#: tindeklub/user/decorators.py:17
+msgid "You need to be signed in for this page."
+msgstr "Du må være innlogget for denne siden"
 
+#: tindeklub/user/views.py:62
+msgid "Successfully signed in"
+msgstr "Logget inn"
+
+#: tindeklub/user/views.py:97
+msgid "You have been successfully signed out"
+msgstr "Du har blitt logget ut"

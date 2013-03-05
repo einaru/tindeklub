@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-03-05 03:59+0100\n"
+"POT-Creation-Date: 2013-03-05 19:16+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,99 +17,165 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.6\n"
 
-#: gear/__init__.py:77
-msgid "Successfully signed in"
+#: tindeklub/__init__.py:28 tindeklub/templates/home.html:5
+msgid "Home"
 msgstr ""
 
-#: gear/__init__.py:100
-msgid "Error: you must provide a name"
+#: tindeklub/__init__.py:29
+msgid "Blog"
 msgstr ""
 
-#: gear/__init__.py:102
-msgid "Error: you have not entered a valid email address"
+#: tindeklub/__init__.py:30 tindeklub/templates/gear/show_carabiner.html:9
+msgid "Gear"
 msgstr ""
 
-#: gear/__init__.py:104
-msgid "Profile successfully created"
+#: tindeklub/__init__.py:31
+msgid "Routes"
 msgstr ""
 
-#: gear/__init__.py:114
-msgid "You have been successfully signed out"
+#: tindeklub/__init__.py:32
+msgid "Tips"
 msgstr ""
 
-#: gear/templates/create_profile.html:5 gear/templates/layout.html:7
-#: gear/templates/layout.html:30 gear/templates/login.html:5
+#: tindeklub/__init__.py:33
+msgid "Login"
+msgstr ""
+
+#: tindeklub/templates/home.html:5
+#: tindeklub/templates/user/create_profile.html:5
+#: tindeklub/templates/user/login.html:5
 msgid "Rock Climbing"
 msgstr ""
 
-#: gear/templates/create_profile.html:5 gear/templates/login.html:5
-#: gear/templates/login.html:25
+#: tindeklub/templates/home.html:16
+msgid "Latest gear"
+msgstr ""
+
+#: tindeklub/templates/home.html:20 tindeklub/templates/gear/gear_list.html:13
+msgid "Manufacturer"
+msgstr ""
+
+#: tindeklub/templates/home.html:21 tindeklub/templates/gear/gear_list.html:14
+msgid "Name"
+msgstr ""
+
+#: tindeklub/templates/home.html:22
+msgid "Date added"
+msgstr ""
+
+#: tindeklub/templates/home.html:35
+msgid "No gear added"
+msgstr ""
+
+#: tindeklub/templates/home.html:41
+msgid "View more gear"
+msgstr ""
+
+#: tindeklub/templates/home.html:48
+msgid "Latest routes"
+msgstr ""
+
+#: tindeklub/templates/home.html:53
+msgid "No routes added"
+msgstr ""
+
+#: tindeklub/templates/home.html:56
+msgid "View more routes"
+msgstr ""
+
+#: tindeklub/templates/home.html:63
+msgid "Latest Tips"
+msgstr ""
+
+#: tindeklub/templates/home.html:68
+msgid "No tips added"
+msgstr ""
+
+#: tindeklub/templates/home.html:71
+msgid "View more tips"
+msgstr ""
+
+#: tindeklub/templates/layout.html:7 tindeklub/templates/layout.html:40
+msgid "Climbing"
+msgstr ""
+
+#: tindeklub/templates/layout.html:55
+msgid "Copyright"
+msgstr ""
+
+#: tindeklub/templates/layout.html:56
+msgid "All Rights Reserved"
+msgstr ""
+
+#: tindeklub/templates/gear/gear_list.html:12
+msgid "Id"
+msgstr ""
+
+#: tindeklub/templates/gear/gear_list.html:15
+msgid "Category"
+msgstr ""
+
+#: tindeklub/templates/gear/gear_list.html:16
+msgid "Date of purchase"
+msgstr ""
+
+#: tindeklub/templates/gear/show_carabiner.html:19
+msgid "Weight"
+msgstr ""
+
+#: tindeklub/templates/gear/show_carabiner.html:23
+msgid "Major axis"
+msgstr ""
+
+#: tindeklub/templates/gear/show_carabiner.html:27
+msgid "Minor axis"
+msgstr ""
+
+#: tindeklub/templates/gear/show_carabiner.html:31
+msgid "Open gate"
+msgstr ""
+
+#: tindeklub/templates/gear/show_carabiner.html:35
+msgid "Gate opening"
+msgstr ""
+
+#: tindeklub/templates/gear/show_carabiner.html:43
+msgid "Note:"
+msgstr ""
+
+#: tindeklub/templates/user/create_profile.html:5
+#: tindeklub/templates/user/login.html:5 tindeklub/templates/user/login.html:25
 msgid "Sign in"
 msgstr ""
 
-#: gear/templates/create_profile.html:17 gear/templates/create_profile.html:30
+#: tindeklub/templates/user/create_profile.html:17
+#: tindeklub/templates/user/create_profile.html:30
 msgid "Create profile"
 msgstr ""
 
-#: gear/templates/create_profile.html:19
+#: tindeklub/templates/user/create_profile.html:19
 msgid ""
 "Hey! This is the first time you signed into this website. In order to "
 "proceed we need some extra information from you:"
 msgstr ""
 
-#: gear/templates/gear_list.html:12
-msgid "Id"
-msgstr ""
-
-#: gear/templates/gear_list.html:13
-msgid "Manufacturer"
-msgstr ""
-
-#: gear/templates/gear_list.html:14
-msgid "Name"
-msgstr ""
-
-#: gear/templates/gear_list.html:15
-msgid "Category"
-msgstr ""
-
-#: gear/templates/gear_list.html:16
-msgid "Date of purchase"
-msgstr ""
-
-#: gear/templates/layout.html:35
-msgid "Home"
-msgstr ""
-
-#: gear/templates/layout.html:36
-msgid "Gear"
-msgstr ""
-
-#: gear/templates/layout.html:37
-msgid "Routes"
-msgstr ""
-
-#: gear/templates/layout.html:38
-msgid "Tips"
-msgstr ""
-
-#: gear/templates/layout.html:39
-msgid "About"
-msgstr ""
-
-#: gear/templates/layout.html:56
-msgid "Copyright"
-msgstr ""
-
-#: gear/templates/layout.html:57
-msgid "All Rights Reserved"
-msgstr ""
-
-#: gear/templates/login.html:18
+#: tindeklub/templates/user/login.html:18
 msgid "Please sign in"
 msgstr ""
 
-#: gear/templates/login.html:24
+#: tindeklub/templates/user/login.html:24
 msgid "OpenID"
+msgstr ""
+
+#: tindeklub/user/decorators.py:17
+msgid "You need to be signed in for this page."
+msgstr ""
+
+#: tindeklub/user/views.py:62
+msgid "Successfully signed in"
+msgstr ""
+
+#: tindeklub/user/views.py:97
+msgid "You have been successfully signed out"
 msgstr ""
 
