@@ -13,7 +13,7 @@ mod = Blueprint("gear", __name__, url_prefix="/gear")
 
 
 @mod.route("/")
-def show_gear_list():
+def index():
     gear_list = Gear.query.all()
     return render_template("gear/gear_list.html", gear_list=gear_list)
 

@@ -31,10 +31,10 @@
 				<div class="masthead">
 					{% block navigation %}
 						<ul class="nav nav-pills pull-right">
-							<li><a href="/">Home</a></li>
-							<li><a href="/gear">Gear</a></li>
+							<li><a href="{{ url_for("home") }}">Home</a></li>
+							<li><a href="{{ url_for("blog.index") }}">Blog</a></li>
+							<li><a href="{{ url_for("gear.index") }}">Gear</a></li>
 							<li><a href="#">Routes</a></li>
-							<li><a href="#">Tips</a></li>
 						</ul>
 					{% endblock %}
 					<h3 class="muted">Einar Uvsløkk &raquo; {{ _("Climbing") }}</h3>

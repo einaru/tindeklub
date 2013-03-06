@@ -8,27 +8,24 @@
 Currently features include:
 
 * *Gear database* - App for storing data about climbing gear in a searchable
-  database. Useful for keeping track of your rock climbing gear, the aging and
-	wearing of the the gear, etc.
+  database. Useful for keeping track of my rock climbing gear, e.g. the aging
+	and wearing of the the gear, etc.
+* *Blog* - A simple blog app to share little tidbits from the life as a rock 
+	climber.
 
 
 ### Planned features
 
 The following features are planned:
 
-* *Route database* - App for storing details of climbed routes.
+* *Route database* - App for storing details about ascended routes.
 * *Rock climbing tips & techniques* - App for gathering different rock climbing
   tips and techniques. Possibly in a blog-like fashion.
 
 
-## Dependencies
+## Requirements
 
-* [Python](http://www.python.org/)
-* [SQLAlchemy](http://www.sqlalchemy.org/)
-* [Flask](http://flask.pocoo.org/)
-* [Flask-Babel](http://pythonhosted.org/Flask-Babel/)
-* [Flask-OpenID](http://pythonhosted.org/Flask-OpenID/)
-
+See [requirements.txt](requirements.txt)
 
 
 ## Author

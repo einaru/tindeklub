@@ -38,39 +38,56 @@
 						{% endfor %}
 					</tbody>
 				</table>
-				<a href="/gear">{{ _("View more gear") }} &raquo;</a>
+				<a href="{{ url_for("gear.index") }}">{{ _("View more gear") }} &raquo;</a>
 
 			</div> {# end latest gear #}
 
 			<div class="span4">
 
 				<img src="http://cambelt.co/300x200"">
-				<h2>{{ _("Latest routes") }}</h2>
+				<h2>{{ _("Latest blog posts") }}</h2>
 				<ul class="unstyled">
-					{% for item in latest_routes %}
-						<li>{{ item.name }} <span class="date-added">{{ item.date_added }}</span></li>
-					{% else %}
-						<li><span class="no-items">{{ _("No routes added") }}</span></li>
-					{% endfor %}
-				</ul>
-				<a href="#">{{ _("View more routes") }} &raquo;</a>
-
-			</div> {# end latest routes #}
-
-			<div class="span4">
-
-				<img src="http://cambelt.co/300x200"">
-				<h2>{{ _("Latest Tips") }}</h2>
-				<ul class="unstyled">
-					{% for item in latest_tips %}
-						<li>{{ item.name }} <span class="date-added">{{ item.date_added }}</span></li>
+					{% for item in latest_posts %}
+						<li>{{ item.title }} in <span class="post-category">{{ item.category }}</span></li>
 					{% else %}
 						<li><span class="no-items">{{ _("No tips added") }}</span></li>
 					{% endfor %}
 				</ul>
-				<a href="#">{{ _("View more tips") }} &raquo;</a>
+				<a href="{{ url_for("blog.index") }}">{{ _("View more blog posts") }} &raquo;</a>
 
-			</div> {# end latest tips #}
+			</div> {# end latest blog posts #}
+
+			<div class="span4">
+
+				<img src="http://cambelt.co/300x200"">
+				<h2>{{ _("Latest routes") }}</h2>
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>{{ _("Name") }}</th>
+							<th>{{ _("Location") }}</th>
+							<th>{{ _("Date added") }}</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for item in latest_routes %}
+							<tr>
+								<td>{{ item.name }}</td>
+								<td>{{ item.location }}</td>
+								<td>{{ item.date_added.strftime("%Y-%m-%d") }}</td>
+							</tr>
+						{% else %}
+							<tr>
+								<td colspan="3">
+									<span class="no-items">{{ _("No routes added") }}</span>
+								</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+				<a href="#">{{ _("View more routes") }} &raquo;</a>
+
+			</div> {# end latest routes #}
 
 		</div> {# end .row-fluid #}
 
