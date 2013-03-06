@@ -1,0 +1,29 @@
+{# login.html #}
+{# vim: set ts=2 sw=2 noai syntax=jinja: #}
+{% extends "layout.html" %}
+
+{% block title %}Einar Uvsløkk | {{ _("Rock Climbing") }} &gt; {{ _("Sign in") }}{% endblock %}
+
+{% block container %}
+
+  <style type="text/css">
+    body {
+      padding-top: 40px;
+      padding-bottom: 40px;
+      background-color: #f5f5f5;
+    }
+  </style>
+
+  <form class="form-login" action="" method="post">
+    <h2 class="form-login-heading">{{ _("Please sign in") }}</h2>
+    {% if error %}
+      <p class="error">
+        <strong>Error:</strong> {{ error }}
+      </p>
+    {% endif %}
+    <input type="text" class="input-block-level" name="openid" size="30" placeholder="{{ _("OpenID") }}">
+    <button class="btn btn-primary" type="submit">{{ _("Sign in") }}</button>
+    <input type="hidden" name="next" value="{{ next }}">
+  </form>
+
+{% endblock %}

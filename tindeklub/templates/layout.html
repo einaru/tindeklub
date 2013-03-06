@@ -1,0 +1,70 @@
+{# layout.html #}
+{# vim: set ts=2 sw=2 noai syntax=jinja: #}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>{% block title %}Einar Uvsløkk | {{ _("Climbing") }}{% endblock %}</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="author" content="Einar Uvsløkk">
+		<meta name="description" content="Rock climbing gear list">
+
+		{# Stylesheets #}
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+		{% block css %}{% endblock %}
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-responsive.min.css') }}">
+		{% block css_responsive %}{% endblock %}
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="{{ url_for('static', filename='js/html5shiv.js') }}"></script>
+    <![endif]-->
+
+	</head>
+	<body>
+
+		<div class="container">
+
+      {% block container %}	
+
+				<div class="masthead">
+					{% block navigation %}
+						<ul class="nav nav-pills pull-right">
+							<li><a href="/">Home</a></li>
+							<li><a href="/gear">Gear</a></li>
+							<li><a href="#">Routes</a></li>
+							<li><a href="#">Tips</a></li>
+						</ul>
+					{% endblock %}
+					<h3 class="muted">Einar Uvsløkk &raquo; {{ _("Climbing") }}</h3>
+				</div>
+
+				<hr>
+
+        <div class="content">
+
+          {% block content %}{% endblock %}
+
+        </div> {# .content #}
+
+				<hr>
+
+        <footer class="site-footer">
+          <p>
+            {{ _("Copyright") }} &copy; Einar Uvsløkk<br>
+            {{ _("All Rights Reserved") }}
+          </p>
+        </footer>
+
+      {% endblock %}
+
+		</div> {# .container #}
+
+		{# Javascript #}
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+		{% block js %}{% endblock %}
+
+	</body>
+</html>
