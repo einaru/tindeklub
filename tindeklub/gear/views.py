@@ -23,3 +23,7 @@ def show_gear(id):
     gear = Gear.query.get(id)
     page = "gear/show_{}.html".format(gear.category)
     return render_template(page, gear=gear)
+
+
+# TODO Add support for adding gear
+# TODO Add support for searching the gear database

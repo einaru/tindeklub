@@ -1,0 +1,3 @@
+tindeklub/blog/views.py:45:        # FIXME Add new category with new post
+tindeklub/gear/views.py:28:# TODO Add support for adding gear
+tindeklub/gear/views.py:29:# TODO Add support for searching the gear database

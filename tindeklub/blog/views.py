@@ -42,6 +42,7 @@ def new_post():
         title = request.form["title"]
         body = request.form["body"]
         tags = request.form["tags"]
+        # FIXME Add new category with new post
         category = Category.query.filter_by(name=request.form["category"]).first()
         #flash(_("There was an error with your input: {}").format(e))
         #return redirect("/blog/post/new")
