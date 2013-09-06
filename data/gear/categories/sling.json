@@ -1,0 +1,11 @@
+{
+	"name": "sling",
+	"attributes": {
+		"material":      { "type": "text" },
+		"color":         { "type": "text" },
+		"breaking_load": { "type": "number", "unit": { "symbol": "kN", "name": "kilonewton" }},
+		"length":        { "type": "number", "unit": { "symbol": "cm", "name": "centimeter" }},
+		"width":         { "type": "number", "unit": { "symbol": "mm", "name": "millimeter" }},
+		"weigth":        { "type": "number", "unit": { "symbol": "g",  "name": "gram" }}
+	}
+}

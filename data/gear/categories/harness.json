@@ -1,0 +1,7 @@
+{
+	"name": "harness",
+	"attributes": {
+		"size":   { "type": "text" },
+		"weigth": { "type": "number", "unit": { "symbol": "g", "name": "gram" }}
+	}
+}

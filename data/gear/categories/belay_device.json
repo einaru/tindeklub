@@ -1,0 +1,9 @@
+{
+	"name": "belay_device",
+	"attributes": {
+		"color":             { "type": "text" },
+		"weight":            { "type": "number", "unit": { "symbol": "g", "name": "gram" }},
+		"min_rope_diameter": { "type": "number", "step": 0.1, "unit": { "symbol": "mm", "name": "millimeter" }},
+		"max_rope_diameter": { "type": "number", "step": 0.1, "unit": { "symbol": "mm", "name": "millimeter" }}
+	}
+}

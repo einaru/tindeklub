@@ -1,0 +1,17 @@
+{
+	"name": "rope",
+	"attributes": {
+		"type":                 { "type": "text" },
+		"color":                { "type": "text" },
+		"length":               { "type": "number",              "unit": { "symbol": "m",   "name": "meter" }},
+		"diameter":             { "type": "number", "step": 0.1, "unit": { "symbol": "mm",  "name": "millimeter" }},
+		"weigth":               { "type": "number",              "unit": { "symbol": "g/m", "name": "gram/meter" }},
+		"number_of_UIAA_falls": { "type": "number" },
+		"max_impact_force":     { "type": "number",              "unit": { "symbol": "kN",  "name": "kilonewton" }},
+		"sheat_slippage":       { "type": "number", "step": 0.1, "unit": { "symbol": "mm",  "name": "millimeter" }},
+		"static_elongation":    { "type": "number",              "unit": { "symbol": "%",   "name": "precent" }},
+		"dynamic_elongation":   { "type": "number",              "unit": { "symbol": "%",   "name": "precent" }},
+		"knotability":          { "type": "number", "step": 0.1 }
+	}
+}
+
