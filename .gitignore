@@ -3,3 +3,4 @@ node_modules/
 scss/bourbon/
 scss/neat/
 mock/
+public/css/*.css
