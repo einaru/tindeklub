@@ -1,0 +1,25 @@
+@mixin label-variant($bg-color: #777, $color: $white) {
+	background-color: $bg-color;
+	color: $color;
+	text-shadow: 0 0 2px darken($bg-color, 20);
+}
+
+.label {
+	padding: em(2) em(4);
+	font-family: $font-family-sans;
+	white-space: nowrap;
+	@include label-variant(#777);
+
+	&[data-state="never used"] {
+		@include label-variant($green);
+	}
+	&[data-state="in use"] {
+		@include label-variant($blue);
+	}
+	&[data-state="retired"] {
+		@include label-variant($red);
+	}
+	&[data-state="lost"] {
+		@include label-variant($orange);
+	}
+}
