@@ -1,0 +1,59 @@
+// ==================================================
+// Tables
+// ==================================================
+
+// Variables
+$table-border-color: #d9d9d9;
+
+table {
+	width: 100%;
+	thead {
+		tr {
+			border-bottom: 2px solid $table-border-color;
+		}
+	}
+	tbody {
+		tr {
+			border-bottom: 1px solid $table-border-color;
+
+			&:last-child {
+				border-bottom: none;
+			}
+
+			&:hover {
+				//background-color: #ddd;
+			}
+
+			&.footable-detail-show {
+				background-color: #ddd;
+				border-left: 1px solid #ddd;
+				border-right: 1px solid #ddd;
+			}
+
+			&.footable-row-detail {
+				background-color: $bg-color;
+				border-left: 1px solid $table-border-color;
+				border-right: 1px solid $table-border-color;
+			}
+		}
+	}
+
+	th,
+	td {
+		padding: $padding;
+	}
+
+	th {
+		text-align: left;
+	}
+
+	tbody {
+		th {
+			//width: 70%;
+
+			//// TODO Desktop
+			//width: 50%;
+		}
+	}
+}
+

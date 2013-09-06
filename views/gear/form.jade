@@ -1,0 +1,62 @@
+extends ../layout
+
+block content
+	- var action = "/gear"
+	- action += gear.isNew ? "" : "/" + gear._id
+	- var title = gear.isNew ? "New" : "Edit"
+	article.gear(role="main")
+		form(action=action, method="post")
+			if (!gear.isNew)
+				input(type="hidden", name="_method", value="put")
+			header
+				.container
+					h1 #{title} <span>#{fmt.str.capitalize(gear.category)}</span>
+			.block.details
+				.container
+					#details
+						h2 Details
+						div
+							label(for="name") Name
+							div: input(type="text", name="name", value=gear.name)
+						div
+							label(for="manufacturer") Manufacturer
+							div: input(type="text", name="manufacturer", value=gear.manufacturer)
+						div
+							label(for="state") State
+							div: select(name="state")
+								for val in gear.schema.path("state").enumValues
+									if val == gear.state
+										option(value=val, selected)= fmt.str.capitalize(val)
+									else
+										option(value=val)= fmt.str.capitalize(val)
+						div
+							label(for="purcased") Purcased
+							div: input(type="text", name="purcased", value=fmt.date.human(gear.purcased))
+						div
+							label(for="first_used") First used
+							div: input(type="text", name="first_used", value=fmt.date.human(gear.first_used))
+						div
+							label(for="serial_number") Serial number
+							div: input(type="text", name="serial_number", value=gear.serial_number)
+						div
+							label(for="certifications") Certifications
+							div: input(type="text", name="certifications", value=gear.certifications)
+
+					#tech-specs
+						h2 Tech specs
+						for meta, attr in metadata
+							div
+								label(for=attr)= fmt.str.capitalize(attr)
+								div
+									- var type = meta.type || "text"
+									- var name = "tech_specs[" + attr + "]"
+									- var value = gear.isNew ? "" : gear.tech_specs[name]
+									input(type=type, name=name, value=value)
+									if meta.unit
+										span.unit(title=meta.unit.name)= meta.unit.symbol
+			footer
+				.container
+					#actions
+						input(type="submit", value="Save")
+						input(type="reset", value="Reset")
+						a(href=action) Cancel

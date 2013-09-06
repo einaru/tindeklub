@@ -1,0 +1,29 @@
+// ==================================================
+// Typography
+// ==================================================
+
+body {
+	font-family: $font-family;
+}
+
+@for $i from 1 through 6 {
+	h#{$i} {
+		font-family: $font-family-headings;
+		font-weight: 800;
+	}
+}
+
+a {
+	color: $blue;
+	text-decoration: none;
+
+	&:hover {
+		color: $blue-dark;
+	}
+}
+
+ul,
+ol {
+	padding-left: em(20) + $padding;
+}
+

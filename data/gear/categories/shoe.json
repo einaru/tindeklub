@@ -1,0 +1,7 @@
+{
+	"name": "shoe",
+	"attributes": {
+		"size":  { "type": "text" },
+		"color": { "type": "text" }
+	}
+}

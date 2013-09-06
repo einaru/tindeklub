@@ -1,0 +1,13 @@
+  {
+	"name": "protection",
+	"attributes": {
+		"type":          { "type": "text" },
+		"color":         { "type": "text" },
+		"weigth":        { "type": "number", "unit": { "symbol": "g", "name": "gram" }},
+		"breaking_load": { "type": "number", "unit": { "symbol": "kN", "name": "kilonewton" }},
+		"min_range":     { "type": "number", "unit": { "symbol": "mm", "name": "millimeter" }},
+		"max_range":     { "type": "number", "unit": { "symbol": "mm", "name": "millimeter" }}
+	}
+}
+
+

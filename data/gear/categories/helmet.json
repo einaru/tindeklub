@@ -1,0 +1,9 @@
+{
+	"name": "helmet",
+	"attributes": {
+		"size":   { "type": "text" },
+		"color":  { "type": "text" },
+		"weigth": { "type": "number", "unit": { "symbol": "g", "name": "gram" }}
+	}
+}
+

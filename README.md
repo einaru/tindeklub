@@ -1,20 +1,20 @@
-# Climbing
+# Tindeklub
 
-Climbing is a digital personal portal for climbers. It features a gear database,
-route database, logbook, blog and more.
+A web app for rock climbing related activities.
 
-## Technologies
+## Copyright and License
 
-Climbing is open source, and uses only open source technologies:
+	Copyright (c) 2013  Einar Uvsløkk
 
-* [Python](http://www.python.org/) >= 2.7 
-* [Flask](http://flask.pocoo.org/) >= 0.9
-  * [Flask-Assets](https://pypi.python.org/pypi/Flask-Assets) >= 0.8
-  * [Flask-Babel](https://pypi.python.org/pypi/Flask-Babel) >= 0.8
+	This program is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
 
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
 
-## Copyright
-
-[Einar Uvsløkk](mailto:einar.uvslokk@gmail.com)
-
-
+	You should have received a copy of the GNU General Public License
+	along with this program.  If not, see http://www.gnu.org/licenses/.

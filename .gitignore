@@ -1,0 +1,6 @@
+node_modules/
+.sass-cache/
+scss/bourbon/
+scss/neat/
+mock/
+public/css/*.css

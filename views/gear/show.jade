@@ -1,0 +1,98 @@
+extends ../layout
+
+block content
+	article.gear(role="main")
+		header
+			.container
+				h1 #{gear.name} <span>#{gear.manufacturer}</span>
+				nav
+					a(href="#details") Details
+					|
+					a(href="#tech-specs") Tech specs
+					|
+					a(href="#usage-log") Usage log
+					|
+					a(href="#images") Images
+
+		.block.details
+			.container
+				#details
+					h2 Details
+					table
+						tr
+							th Category
+							td= fmt.str.capitalize(gear.category)
+						tr
+							th State
+							td: span.label(data-state=gear.state)= fmt.str.capitalize(gear.state)
+						tr
+							th Purcased
+							td
+								if Date.parse(gear.purcased)
+									time(datetime=fmt.date.iso(gear.purcased))= fmt.date.human(gear.purcased)
+						tr
+							th First used
+							td
+								if Date.parse(gear.first_used)
+									time(datetime=fmt.date.iso(gear.first_used))= fmt.date.human(gear.first_used)
+						tr
+							th Serial number
+							td= gear.serial_number
+					h3 Certifications
+					ul
+						for cert in gear.certifications.split(",")
+							li= cert
+
+				#tech-specs
+					h2 Tech specs
+					table
+						for val, key in gear.tech_specs
+							tr
+								th= fmt.str.capitalize(key)
+								td
+									!= val
+									- var meta = metadata[key]
+									if meta.unit
+										span.unit(title=meta.unit.name)= meta.unit.symbol
+		.block.log
+			.container
+				#usage-log
+					h2 Usage log
+					if gear.usage_log.length
+						ul
+							for entry in gear.usage_log
+								li.entry
+									.meta
+										time(datetime=fmt.date.iso(entry.date))= fmt.date.human(entry.date)
+										// TODO Add user
+										//| -
+										//span= entry.user
+									.comment
+										= entry.comment
+					else
+						p: em No entries in the usage log!
+					
+					- var action = "/gear/" + gear._id + "/log"
+					form(action=action, method="post")
+						h4 Add new log entry
+						div
+							label(for="date") Date
+							div: input(type="text", name="date")
+						div
+							label(for="comment") Comment
+							div: textarea(name="comment")
+
+						input(type="submit", value="Add log entry")
+
+		footer
+			.container
+				#actions
+					a(href="#{'/gear/' + gear._id + '/edit'}") Edit #{gear.category}
+					- var action = "/gear/" + gear._id
+					form(action=action, method="post")
+						input(type="hidden", name="_method", value="put")
+						input(type="hidden", name="state", value="retired")
+						input(type="submit", data-action="retire", value="#{'Retire ' + gear.category}")
+					form(action=action, method="post")
+						input(type="hidden", name="_method", value="delete")
+						input(type="submit", data-action="delete", value="#{'Delete ' + gear.category}")
