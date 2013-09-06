@@ -3,12 +3,12 @@
 // ==================================================
 
 body {
-	font-family: $font-family;
+	font-family: $font-family-serif;
 }
 
 @for $i from 1 through 6 {
 	h#{$i} {
-		font-family: $font-family-headings;
+		font-family: $font-family-sans;
 		font-weight: 800;
 	}
 }

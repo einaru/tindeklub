@@ -1,0 +1,73 @@
+// ==================================================
+// Tindeklub > Header & Footer
+// ==================================================
+
+// Header
+header[role=banner] {
+	font-family: $font-family-sans;
+	background-color: lighten($black, 10);
+
+	h1 {
+		margin: 0;
+		display: inline-block;
+	}
+
+	a {
+		color: $white;
+	}
+
+	.container {
+		@include outer-container;
+		@include pad(em(3) default);
+	}
+
+	.branding {
+		@include span-columns(3);
+		font-size: 1.3em;
+
+		#logo {
+			font-weight: bold;
+		}
+	}
+	.actions {
+		@include span-columns(3);
+
+		#nav-toggle,
+		#login {
+		}
+
+		#nav-toggle {
+		}
+	}
+
+	nav {
+		@include span-columns(6);
+
+		ul {
+			@include list-reset;
+		}
+
+		li {
+			display: inline;
+
+			a {
+				display: inline-block;
+
+			}
+			&:last-child {
+				a {
+				}
+			}
+		}
+	}
+
+}
+
+// Footer
+footer[role=contentinfo] {
+	.copyright {
+		text-align: center;
+		font-size: 0.9em;
+	}
+}
+

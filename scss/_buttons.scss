@@ -1,3 +1,7 @@
+// ==================================================
+// Buttons
+// ==================================================
+
 @mixin button($bg-color: $blue, $color: $white) {
 	position: relative;
 	width: 100%;
@@ -52,3 +56,4 @@ input[type="submit"] {
 input[type="reset"] {
 	@include button($red);
 }
+

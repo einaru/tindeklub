@@ -1,0 +1,46 @@
+// ==================================================
+// Alerts
+// ==================================================
+
+@mixin alert-variant ($bg-color, $color) {
+	background-color: rgba($bg-color, .5);
+	border-color: rgba($bg-color, .5);
+	color: $color;
+}
+
+.alert {
+	font-family: $font-family-sans;
+	border-bottom: 1px solid;
+
+	strong {
+		text-transform: capitalize;
+	}
+
+	a {
+		color: inherit;
+		text-decoration: underline;
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
+	&[empty] {
+		display: none;
+	}
+
+	&.error,
+	&.caution {
+		@include alert-variant($red, $red-dark);
+	}
+	&.info {
+		@include alert-variant($blue, $blue-dark);
+	}
+	&.success {
+		@include alert-variant($green, $green-dark);
+	}
+	&.warning {
+		@include alert-variant($yellow, $yellow-dark);
+	}
+}
+

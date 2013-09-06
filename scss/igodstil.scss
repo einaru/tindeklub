@@ -11,24 +11,27 @@
  */
 @import "fonts";
 @import "variables";
-$font-family: "Quattrocento", $georgia;
-$font-family-headings: "Open Sans", $helvetica;
-$font-family-sans: "Open Sans", $helvetica;
-$font-family-serif: "Quattrocento", $georgia;
-
-$bg-color: #f0f0f0;
-$padding: em(6);
-
 @import "mixins";
 
+// Partials
 @import "buttons";
 @import "forms";
 @import "labels";
 @import "type";
 @import "tables";
+@import "alerts";
 
-// Tindeklub spesifics
+// Tindeklub partials
+@import "tindeklub/header-footer";
 @import "tindeklub/gear";
+
+// ==================================================
+// Messages
+// ==================================================
+.message {
+	@include outer-container;
+	@include pad(em(20) default);
+}
 
 // ==================================================
 // Blocks for styling
@@ -56,196 +59,29 @@ $block-border-color:  darken($white, 15);
 	}
 }
 
-// ==================================================
-// Header
-// ==================================================
-header[role=banner] {
-	font-family: $font-family-headings;
-	background-color: #1a1a1a; //lighten($black, 10);
+.log,
+.usage-log {
+	form {
+		padding-top: em(20);
 
-	h1 {
-		margin: 0;
-		display: inline-block;
-	}
-
-	a {
-		color: $white;
-	}
-
-	.container {
-		@include outer-container;
-		@include pad(em(3) default);
-	}
-
-	.branding {
-		@include span-columns(3);
-
-		#logo {
-			font-weight: bold;
-		}
-	}
-	.actions {
-		@include span-columns(3);
-
-		#nav-toggle,
-		#login {
+		input {
 		}
 
-		#nav-toggle {
-		}
-	}
-
-	nav {
-		@include span-columns(6);
-
-		ul {
-			@include list-reset;
+		textarea,
+		input[type=text] {
+			background-color: lighten(#222, 10);
+			border-color: darken(#222, 2);
+			color: $white;
 		}
 
-		li {
-			display: inline;
-
-			a {
-				display: inline-block;
-
-			}
-			&:last-child {
-				a {
-				}
-			}
+		input[type=text] {
 		}
-	}
-
-}
-
-// ==================================================
-// Footer
-// ==================================================
-footer[role=contentinfo] {
-	.copyright {
-		text-align: center;
-		font-size: 0.9em;
-	}
-}
-
-// ==================================================
-// Gear
-// ==================================================
-article[role=main] {
-
-	.container {
-		@include outer-container;
-		@include pad;
-
-		#details,
-		#tech-specs {
-			@include span-columns(12);
-			//@include span-columns(6);
-			//@include omega(2n);
-			@include pad;
-		}
-
-		#details {
-			margin-bottom: em(20);
-		}
-
-		#images,
-		#usage-log,
-		#notes {
-			@include span-columns(12);
-			@include pad;
-		}
-
-		#tech-specs {
-			input {
-				&[type=text],
-				&[type=number] {
-					width: 90%;
-				}
-			}
-		}
-
-		#usage-log {
-			ul {
-				@include list-reset;
-
-				.entry {
-					border-top: 1px solid rgba($white, .05);
-					border-bottom: 1px solid rgba($black, .3);
-					padding: em(10);
-
-					.meta {
-						font-size: .9em;
-						margin-bottom: em(10);
-					}
-
-					&:first-child {
-						border-top: none;
-					}
-
-					&:last-child {
-						border-bottom: none;
-					}
-				}
-			}
-		}
-	}
-
-	> header {
-		background-color: $white;
-
-		h1 {
-			span {
-				// Mobile
-				display: block;
-				font-size: .7em;
-				color: lighten($black, 35);
-				color: $orange-dark;
-				//// TODO Tablet and greater
-				//display: inline;
-				//font-size: .7em;
-				//margin-left: em(5);
-			}
-		}
-
-		nav {
-			a {
-				font-family: $font-family-headings;
-				padding: 0 ($padding);
-
-				&:first-child {
-					padding-left: 0;
-				}
-			}
-		}
-	}
-
-	&.gear {
-		#actions {
-			a {
-				@include button;
-				&#retire-gear { @include button($orange); }
-				&#delete-gear { @include button($red); }
-			}
-		}
-
-		.unit {
-			margin-left: em(3);
-			&[title] {
-				cursor: help;
-			}
-		}
-	}
-
-	footer {
-		//border-top: 1px solid #d9d9d9;
 	}
 }
 
 // ==================================================
 // Swipe image gallery
 // ==================================================
-
 .swipe {
 	overflow: hidden;
 	visibility: hidden;
@@ -288,86 +124,4 @@ article[role=main] {
 	border-radius: 8px;
 	overflow: hidden;
 }
-// ==================================================
-// Messages
-// ==================================================
-.message {
-	@include outer-container;
-	@include pad(em(20) default);
-}
 
-// ==================================================
-// Alerts
-// ==================================================
-@mixin alert-variant ($bg-color, $color) {
-	background-color: rgba($bg-color, .5);
-	border-color: rgba($bg-color, .5);
-	color: $color;
-}
-
-.alert {
-	font-family: $font-family-sans;
-	border-bottom: 1px solid;
-
-	strong {
-		text-transform: capitalize;
-	}
-
-	a {
-		color: inherit;
-		text-decoration: underline;
-
-		&:hover {
-			text-decoration: none;
-		}
-	}
-
-	&[empty] {
-		display: none;
-	}
-
-	&.error,
-	&.caution {
-		@include alert-variant($red, $red-dark);
-	}
-	&.info {
-		@include alert-variant($blue, $blue-dark);
-	}
-	&.success {
-		@include alert-variant($green, $green-dark);
-	}
-	&.warning {
-		@include alert-variant($yellow, $yellow-dark);
-	}
-}
-
-.gear-list {
-	.filter-container {
-		@include pad(0 0 default 0);
-
-		#filter,
-		#gear-list-filter {
-		}
-	}
-	table {
-	}
-}
-
-.log {
-	form {
-		padding-top: em(20);
-
-		input {
-		}
-
-		textarea,
-		input[type=text] {
-			background-color: lighten(#222, 10);
-			border-color: darken(#222, 2);
-			color: $white;
-		}
-
-		input[type=text] {
-		}
-	}
-}
