@@ -5,7 +5,8 @@ block content
 	- action += gear.isNew ? "" : "/" + gear._id
 	- var title = gear.isNew ? "New" : "Edit"
 	article.gear(role="main")
-		form(action=action, method="post")
+		form(action=action, method="post", enctype="multipart/form-data")
+			input(type="hidden", name="category", value=gear.category)
 			if (!gear.isNew)
 				input(type="hidden", name="_method", value="put")
 			header
@@ -54,9 +55,15 @@ block content
 									input(type=type, name=name, value=value)
 									if meta.unit
 										span.unit(title=meta.unit.name)= meta.unit.symbol
+
+					#images
+						h2 Images
+						div
+							div
+								input(type="file", name="images", multiple)
+
 			footer
 				.container
 					#actions
 						input(type="submit", value="Save")
-						input(type="reset", value="Reset")
 						a(href=action) Cancel
