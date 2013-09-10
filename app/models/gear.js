@@ -122,15 +122,25 @@ GearSchema.methods = {
 	 * @api private
 	 */
 	uploadAndSave: function(images, callback) {
+		// Ensure that images is an Array
+		if ("undefined" === typeof images.forEach) {
+			images = [ images ];
+		}
+
 		if (!images || !images.length) {
 			return this.save(callback);
 		}
+
+		var getRelativePath = function(from, to) {
+			return path.join("/", path.relative(from, to));
+		};
 
 		var self = this;
 		
 		for (var i = 0, l = images.length; i < l; i++) {
 			var file = images[i];
-			console.log(file);
+
+			// Validate valid file type
 			if (!~IMG_MIME_TYPES.indexOf(file.type)) {
 				console.log("Unsupported filetype '%s'", file.type);
 				continue;
@@ -162,20 +172,18 @@ GearSchema.methods = {
 			// Add image
 			self.images.push({
 				name: file.name, type: file.type, path: _path,
-				rel: path.relative(STATIC_DIR, _path),
+				rel: getRelativePath(STATIC_DIR, _path),
 				versions: {
 					medium: {
 						path: medPath,
-						rel: path.relative(STATIC_DIR, medPath)
+						rel: getRelativePath(STATIC_DIR, medPath)
 					},
 					thumbnail: {
 						path: thumbPath,
-						rel: path.relative(STATIC_DIR, thumbPath)
+						rel: getRelativePath(STATIC_DIR, thumbPath)
 					}
 				}
 			});
-
-			console.log(self.images);
 		}
 
 		self.save(callback);

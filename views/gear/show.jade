@@ -64,8 +64,8 @@ block content
 						ul
 							for img in gear.images
 								li
-									a(href="#{'/' + img.rel}")
-										img(src="#{'/' + img.versions.thumbnail.rel}", alt=img.name)
+									a(href=img.rel)
+										img(src=img.versions.thumbnail.rel, alt=img.name)
 		.block.log
 			.container
 				#usage-log
