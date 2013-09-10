@@ -4,3 +4,5 @@ scss/bourbon/
 scss/neat/
 mock/
 public/css/*.css
+public/img/gear/
+tmp/
