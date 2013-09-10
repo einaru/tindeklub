@@ -14,6 +14,7 @@ module.exports = {
 	development: {
 		db: "mongodb://localhost/tindeklub-dev",
 		root: rootPath,
+		uploadDir: path.join(rootPath, "tmp/uploads"),
 		app: {
 			name: "Tindeklub (devel)"
 		}
@@ -21,6 +22,7 @@ module.exports = {
 	test: {
 		db: "mongodb://localhost/tindeklub-test",
 		root: rootPath,
+		uploadDir: path.join(rootPath, "tmp/uploads"),
 		app: {
 			name: "Tindeklub (testing)"
 		}

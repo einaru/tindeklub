@@ -23,7 +23,9 @@ module.exports = function(app, config) {
 	app.configure(function() {
 		app.use(express.cookieParser("lvngthdrm"));
 		app.use(express.session({ cookie: { maxAge: 60000 }}));
-		app.use(express.bodyParser());
+		app.use(express.bodyParser({
+			uploadDir: config.uploadDir
+		}));
 		app.use(express.methodOverride());
 		app.use(flash());
 		app.use(app.router);

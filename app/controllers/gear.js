@@ -66,8 +66,14 @@ exports.newCategory = function(req, res) {
 };
 
 exports.create = function(req, res) {
-	var gear = new Gear(req.body);
-	gear.save(function(err) {
+	var gear = new Gear(req.body),
+		images = req.files.images;
+
+	if ("undefined" === typeof images.forEach) {
+		images = [ images ];
+	}
+
+	gear.uploadAndSave(images, function(err) {
 		console.log(!err);
 		if (!err) {
 			req.flash("info", "Successfully added new gear");

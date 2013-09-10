@@ -9,10 +9,11 @@ block content
 					a(href="#details") Details
 					|
 					a(href="#tech-specs") Tech specs
+					if gear.images.length
+						|
+						a(href="#images") Images
 					|
 					a(href="#usage-log") Usage log
-					|
-					a(href="#images") Images
 
 		.block.details
 			.container
@@ -54,6 +55,17 @@ block content
 									- var meta = metadata[key]
 									if meta.unit
 										span.unit(title=meta.unit.name)= meta.unit.symbol
+
+		if gear.images.length
+			.block.images
+				.container
+					#images
+						h2 Images
+						ul
+							for img in gear.images
+								li
+									a(href="#{'/' + img.rel}")
+										img(src="#{'/' + img.versions.thumbnail.rel}", alt=img.name)
 		.block.log
 			.container
 				#usage-log
