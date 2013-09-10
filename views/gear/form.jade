@@ -52,7 +52,10 @@ block content
 									- var type = meta.type || "text"
 									- var name = "tech_specs[" + attr + "]"
 									- var value = gear.isNew ? "" : gear.tech_specs[name]
-									input(type=type, name=name, value=value)
+									if type == "number"
+										input(type=type, name=name, min="0", value=value)
+									else
+										input(type=type, name=name, value=value)
 									if meta.unit
 										span.unit(title=meta.unit.name)= meta.unit.symbol
 

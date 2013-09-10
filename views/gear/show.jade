@@ -40,9 +40,13 @@ block content
 							th Serial number
 							td= gear.serial_number
 					h3 Certifications
-					ul
-						for cert in gear.certifications.split(",")
-							li= cert
+					- var certifications = gear.certifications.split(",")
+					if certifications.length && certifications[0] != ""
+						ul
+							for cert in certifications
+								li= cert
+					else
+						p: em No certifications registered!
 
 				#tech-specs
 					h2 Tech specs
