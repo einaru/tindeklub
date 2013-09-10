@@ -82,7 +82,7 @@ article[role=main] {
 		nav {
 			a {
 				font-family: $font-family-sans;
-				padding: 0 ($padding);
+				padding: 0 ($padding-horizontal / 2);
 
 				&:first-child {
 					padding-left: 0;
