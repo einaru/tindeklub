@@ -132,3 +132,21 @@ ol {
 		}
 	}
 }
+
+// Images
+#images {
+	ul {
+		@include list-reset;
+
+		li {
+			@include span-columns(4);
+			@include omega(3n);
+			@include pad(default 0);
+
+			img {
+				width: 100%;
+			}
+		}
+	}
+}
+
