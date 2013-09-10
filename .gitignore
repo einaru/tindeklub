@@ -6,3 +6,4 @@ mock/
 public/css/*.css
 public/img/gear/
 tmp/
+npm-debug.log
