@@ -1,7 +1,7 @@
-extends ../layout
+extends ../layouts/default
 
-block content
-	article.gear(role="main")
+block main
+	article.gear
 		header
 			.container
 				h1 #{gear.name} <span>#{gear.manufacturer}</span>
@@ -87,7 +87,7 @@ block content
 										= entry.comment
 					else
 						p: em No entries in the usage log!
-					
+
 					- var action = "/gear/" + gear._id + "/log"
 					form(action=action, method="post")
 						h4 Add new log entry

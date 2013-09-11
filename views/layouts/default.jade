@@ -1,7 +1,7 @@
 doctype 5
 html
 	head
-		include includes/head
+		include ../includes/head
 	body
 		header(role="banner")
 			.container
@@ -12,7 +12,9 @@ html
 				else
 					a(href="/login") Login
 
-		block content
+		main(role="main")
+			block main
+
 		footer(role="contentinfo")
 			.container
 				p.copyright

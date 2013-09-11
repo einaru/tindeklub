@@ -1,7 +1,7 @@
-extends ../layout
+extends ../layouts/default
 
-block content
-	article.gear.user-profile(role="main")
+block main
+	article.user-profile
 		header
 			.container
 				h1 User profile for <span>#{user.fullname}</span>
