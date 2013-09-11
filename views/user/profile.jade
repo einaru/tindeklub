@@ -1,0 +1,24 @@
+extends ../layout
+
+block content
+	article.gear.user-profile(role="main")
+		header
+			.container
+				h1 User profile for <span>#{user.fullname}</span>
+
+		.block.details
+			.container
+				#details
+					table
+						tbody
+							tr
+								th First name
+								td= user.name.first
+							tr
+								th Last name
+								td= user.name.last
+							tr
+								th Email
+								td= user.email
+
+

@@ -7,6 +7,11 @@ html
 			.container
 				.branding
 					a#logo(href="/") Tindeklub
+				if (user)
+					a(href="/user/profile")= user.name.first
+				else
+					a(href="/login") Login
+
 		block content
 		footer(role="contentinfo")
 			.container

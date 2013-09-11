@@ -1,4 +1,4 @@
-extends layouts/nobanner
+extends ../layouts/nobanner
 
 block main
 	main(role="main")
@@ -14,13 +14,14 @@ block main
 					div
 						input(type="text", name="name.last")
 				div
-					label(for=everyauth.password.loginFormFieldName) Email
+					label(for="email") Email
 					div
-						input(type="email", name=everyauth.password.loginFormFieldName, value=userParams[everyauth.password.loginFormFieldName])
+						input(type="email", name="email")
 				div
-					label(for=everyauth.password.passwordFormFieldName) Password
+					label(for="password") Password
 					div
-						input(type="password", name=everyauth.password.passwordFormFieldName)
+						input(type="password", name="password")
+
 				.actions
 					input(type="submit", value="Register")
 					p
