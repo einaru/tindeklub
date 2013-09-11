@@ -7,10 +7,11 @@ html
 			.container
 				.branding
 					a#logo(href="/") Tindeklub
-				if (user)
-					a(href="/user/profile")= user.name.first
-				else
-					a(href="/login") Login
+				.actions
+					if (user)
+						a(href="/user/profile")= user.name.first
+					else
+						a(href="/login") Login
 
 		main(role="main")
 			block main
