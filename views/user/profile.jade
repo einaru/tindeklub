@@ -4,22 +4,7 @@ block main
 	article.user-profile
 		header
 			.container
+				figure
+					img(src=user.picture)
 				h1= user.fullname
 				h2: a(href="mailto:" + user.email)= user.email
-
-		.block.details
-			.container
-				#details
-					table
-						tbody
-							tr
-								th First name
-								td= user.name.first
-							tr
-								th Last name
-								td= user.name.last
-							tr
-								th Email
-								td= user.email
-
-

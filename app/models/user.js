@@ -10,7 +10,8 @@
 var mongoose = require("mongoose"),
 	Schema = mongoose.Schema,
 	crypto = require("crypto"),
-	format = require("util").format;
+	format = require("util").format,
+	gravatar = require("../../lib/gravatar");
 
 var UserSchema = new Schema({
 	name: {
@@ -39,6 +40,11 @@ UserSchema.virtual("password")
 UserSchema.virtual("fullname")
 	.get(function() {
 		return format("%s %s", this.name.first, this.name.last).trim();
+	});
+
+UserSchema.virtual("picture")
+	.get(function() {
+		return gravatar.url(this.email, { size: 200 }, https=false);
 	});
 
 var validatePresenceOf = function(value) {
