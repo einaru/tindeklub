@@ -1,3 +1,7 @@
+// ==================================================
+// Buttons
+// ==================================================
+
 @mixin button($bg-color: $blue, $color: $white) {
 	position: relative;
 	width: 100%;
@@ -8,12 +12,10 @@
 	text-decoration: none;
 	outline: none;
 	font-family: $helvetica;
-	font-size: 14px;
 	font-weight: bold;
-	line-height: 20/14;
 
 	// Main styling
-	padding: 6px 14px;
+	padding: $padding;
 	margin: 10px 0;
 	border-radius: $border-radius;
 	border: 1px solid lighten($bg-color, 5);
@@ -52,3 +54,4 @@ input[type="submit"] {
 input[type="reset"] {
 	@include button($red);
 }
+

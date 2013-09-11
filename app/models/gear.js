@@ -8,10 +8,19 @@
  */
 
 var mongoose = require("mongoose"),
+	mkdirp = require("mkdirp"),
 	path = require("path"),
 	fs = require("fs"),
+	gm = require("gm"),
+	rmdir = require("../../lib/rmdir"),
 	Schema = mongoose.Schema;
 
+var STATIC_DIR = path.normalize(__dirname + "/../../public"),
+	IMG_MIME_TYPES = [
+		"image/jpeg",
+		"image/png",
+		"image/gif"
+	];
 
 function getCerts(c) {
 	return c.join(",");
@@ -40,6 +49,22 @@ var GearSchema = new Schema({
 		date: { type: Date },
 		// TODO add user field
 		comment: { type: String }
+	}],
+	images: [{
+		name: { type: String },
+		type: { type: String },
+		path: { type: String },
+		rel: { type: String },
+		versions: {
+			medium: {
+				path: { type: String },
+				rel: { type: String }
+			},
+			thumbnail: {
+				path: { type: String },
+				rel: { type: String }
+			}
+		}
 	}]
 }, { collection: "gear" });
 
@@ -77,6 +102,15 @@ GearSchema.pre("save", function(next) {
 	next();
 });
 
+// Pre-remove hook
+GearSchema.pre("remove", function(next) {
+	var images = this.images;
+	if (images.length) {
+		rmdir(path.dirname(images[0].path));
+	}
+	next();
+});
+
 
 // Methods
 GearSchema.methods = {
@@ -88,10 +122,71 @@ GearSchema.methods = {
 	 * @api private
 	 */
 	uploadAndSave: function(images, callback) {
+		// Ensure that images is an Array
+		if ("undefined" === typeof images.forEach) {
+			images = [ images ];
+		}
+
 		if (!images || !images.length) {
 			return this.save(callback);
 		}
-		this.save(callback);
+
+		var getRelativePath = function(from, to) {
+			return path.join("/", path.relative(from, to));
+		};
+
+		var self = this;
+		
+		for (var i = 0, l = images.length; i < l; i++) {
+			var file = images[i];
+
+			// Validate valid file type
+			if (!~IMG_MIME_TYPES.indexOf(file.type)) {
+				console.log("Unsupported filetype '%s'", file.type);
+				continue;
+			}
+
+			var _path = path.join(STATIC_DIR, "img/gear/" + self._id, file.name),
+				_dir = path.dirname(_path);
+
+			// Create directory and move image
+			mkdirp.sync(_dir);
+			fs.renameSync(file.path, _path);
+
+			// Create medium sized image
+			var medPath = path.join(_dir, "medium", file.name);
+			mkdirp.sync(path.dirname(medPath));
+			gm(_path).resize(500).noProfile()
+				.write(medPath, function(err) {
+					if (err) console.log("Error resizing image:\n%s", err);
+				});
+
+			// Create thumbnail
+			var thumbPath = path.join(_dir, "thumb", file.name);
+			mkdirp.sync(path.dirname(thumbPath));
+			gm(_path).resize(400).gravity("Center").crop(128, 128, 0, 0).noProfile()
+				.write(thumbPath, function(err) {
+					if (err) console.log("Error creating thumbnail:\n%s", err);
+				});
+
+			// Add image
+			self.images.push({
+				name: file.name, type: file.type, path: _path,
+				rel: getRelativePath(STATIC_DIR, _path),
+				versions: {
+					medium: {
+						path: medPath,
+						rel: getRelativePath(STATIC_DIR, medPath)
+					},
+					thumbnail: {
+						path: thumbPath,
+						rel: getRelativePath(STATIC_DIR, thumbPath)
+					}
+				}
+			});
+		}
+
+		self.save(callback);
 	},
 
 	/**

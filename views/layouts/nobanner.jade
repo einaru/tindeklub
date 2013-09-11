@@ -1,0 +1,12 @@
+doctype 5
+html
+	head
+		include ../includes/head
+	body
+		if ("undefined" !== typeof errors && errors.length)
+			.block.messages
+					for error in errors
+						div
+							.container= error
+		block main
+

@@ -1,6 +1,6 @@
 {
   "name": "tindeklub",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Web app for the Tindklub",
   "author": "Einar Uvsløkk",
   "private": true,
@@ -18,13 +18,20 @@
     "start": "NODE_ENV=development ./node_modules/.bin/nodemon server.js"
   },
   "dependencies": {
-    "underscore": "~1.5.1",
     "express": "~3.3.8",
     "jade": "~0.35.0",
     "mongoose": "~3.6.19",
-    "connect-flash": "~0.1.1"
+    "connect-flash": "~0.1.1",
+    "connect-mongo": "~0.3.3",
+    "passport": "~0.1.17",
+    "passport-local": "~0.1.6",
+    "underscore": "~1.5.1",
+    "mkdirp": "~0.3.5",
+    "gm": "~1.13.0"
   },
   "devDependencies": {
-    "nodemon": "~0.7.10"
+    "nodemon": "~0.7.10",
+    "mongodb": "~1.3.19",
+    "argparse": "~0.1.15"
   }
 }

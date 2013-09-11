@@ -1,3 +1,7 @@
+// ==================================================
+// Labels
+// ==================================================
+
 @mixin label-variant($bg-color: #777, $color: $white) {
 	background-color: $bg-color;
 	color: $color;
@@ -8,7 +12,7 @@
 	padding: em(2) em(4);
 	font-family: $font-family-sans;
 	white-space: nowrap;
-	@include label-variant(#777);
+	@include label-variant;
 
 	&[data-state="never used"] {
 		@include label-variant($green);
@@ -23,3 +27,4 @@
 		@include label-variant($orange);
 	}
 }
+

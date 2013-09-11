@@ -1,0 +1,15 @@
+// ==================================================
+// Tindeklub > User
+// ==================================================
+
+article[class*="user-"] {
+	.container {
+		@include outer-container;
+		@include pad;
+	}
+
+	.details {
+		border-bottom: 1px solid $block-border-color;
+	}
+}
+

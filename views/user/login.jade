@@ -1,0 +1,21 @@
+extends ../layouts/nobanner
+
+block main
+	article.user-login
+		.container
+			h1 Tindeklub login
+			form(action="/login", method="post")
+				div
+					label(for="email") Email
+					div
+						input(type="email", name="email")
+				div
+					label(for="password") Password
+					div
+						input(type="password", name="password")
+
+				.actions
+					input(type="submit", value="Login")
+					p
+						<strong>Don't have an account?</strong> Register <a href="/register">here</a>.
+

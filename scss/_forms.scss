@@ -8,11 +8,25 @@ select {
 
 input[type=text],
 input[type=number],
+input[type=search],  // FIXME type=search with width=100% behaves wierd!
+input[type=email],
+input[type=url],
+input[type=password],
 select,
 textarea {
-	border: 1px solid #d9d9d9;
-	background-color: $white;
+	border: 1px solid $input-border-color;
+	background-color: $input-bg-color;
 	border-radius: $border-radius;
-	padding: 6px;
+	padding: $padding;
 	width: 100%;
+}
+
+
+// Login & registration
+// ==================================================
+[role=main] {
+	.container {
+		@include outer-container;
+		@include pad;
+	}
 }

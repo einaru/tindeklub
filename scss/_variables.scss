@@ -1,56 +1,86 @@
+// ==================================================
 // Variables
+// ==================================================
 
 // Colors
 // ==================================================
-// green
-$turquoise:     #1abc9c;
-$green-sea:     #16a085;
-$emerald:       #2ecc71;
-$nephritis:     #27ae60;
-// blue
-$peter-river:   #3498db;
-$belize-hole:   #2980b9;
-$wet-asphalt:   #34495e;
-$midnight-blue: #2c3e50;
-// purple
-$amethyst:      #9b59b6;
-$wisteria:      #8e44ad;
-// yellow
-$sun-flower:    #f1c40f;
-$orange:        #f39c12;
-$carrot:        #e67e22;
-$pumpkin:       #d35400;
-// red
-$alizarin:      #e74c3c;
-$pomegranate:   #c0392b;
-// grays
-$clouds:        #ecf0f1;
-$silver:        #bdc3c7;
-$concrete:      #95a5a6;
-$asbestos:      #7f8c8d;
+// (http://flatuicolors.com/)
+$turquoise:          #1abc9c; // green-ish
+$green-sea:          #16a085; //   |
+$emerald:            #2ecc71; //   |
+$nephritis:          #27ae60; //   v
+$peter-river:        #3498db; // blue-ish
+$belize-hole:        #2980b9; //   |
+$wet-asphalt:        #34495e; //   |
+$midnight-blue:      #2c3e50; //   v
+$amethyst:           #9b59b6; // purple-ish
+$wisteria:           #8e44ad; //   v
+$sun-flower:         #f1c40f; // yellow-ish
+$orange:             #f39c12; //   |
+$carrot:             #e67e22; //   |
+$pumpkin:            #d35400; //   v
+$alizarin:           #e74c3c; // red-ish
+$pomegranate:        #c0392b; //   v
+$clouds:             #ecf0f1; // gray-ish
+$silver:             #bdc3c7; //   |
+$concrete:           #95a5a6; //   |
+$asbestos:           #7f8c8d; //   v
 
-// ==================================================
+// (https://github.com/twbs/bootstrap/blob/master/less/variables.less)
+$gray-darker:        lighten(#000, 13.5%); // #222
+$gray-dark:          lighten(#000, 20%);   // #333
+$gray:               lighten(#000, 33.5%); // #555
+$gray-light:         lighten(#000, 60%);   // #999
+$gray-lighter:       lighten(#000, 93.5%); // #eee
 
-$black:           #000;
-$white:           #fff;
-
-// Grays
+$black:              #000;
+$white:              #fff;
 
 // Roy G. Biv
-$red:             #e74c3c;
-$red-dark:        #c0392b;
-$orange:          #e67e22;
-$orange-dark:     #d35400;
-$yellow:          #f1c40f;
-$yellow-dark:     #f39c12;
-$green:           #2ecc71;
-$green-dark:      #27ae60;
-$blue:            #3498db;
-$blue-dark:       #2980b9;
-$indigo:          #34495e;
-$indigo-dark:     #2c3e50;
-$violet:          #9b59b6;
-$violet-dark:     #8e44ad;
+$red:                #e74c3c;
+$red-dark:           #c0392b;
+$orange:             #e67e22;
+$orange-dark:        #d35400;
+$yellow:             #f1c40f;
+$yellow-dark:        #f39c12;
+$green:              #2ecc71;
+$green-dark:         #27ae60;
+$blue:               #3498db;
+$blue-dark:          #2980b9;
+$indigo:             #34495e;
+$indigo-dark:        #2c3e50;
+$violet:             #9b59b6;
+$violet-dark:        #8e44ad;
+
+// Element based colors
+$bg-color:           #f0f0f0;
 
 // Borders
-$border-radius: 2px;
+// ==================================================
+$border-radius:      2px;
+
+// Padding
+// ==================================================
+$padding-vertical:   em(12);
+$padding-horizontal: em(12);
+$padding:            $padding-vertical $padding-horizontal;
+
+// Fonts
+// ==================================================
+$font-family-sans:   "Open Sans", $helvetica;
+$font-family-serif:  "Quattrocento", $georgia;
+
+// Tables
+// ==================================================
+$table-border-color: #d9d9d9;
+
+// Input & form elements
+// ==================================================
+$input-bg-color:     $white;
+$input-border-color: #d9d9d9;
+$input-border:       1px solid $input-border-color;
+
+
+$block-bg-color:      darken($white, 7);
+$block-bg-color-dark: #222;
+$block-border-color:  darken($white, 15);

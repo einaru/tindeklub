@@ -2,3 +2,133 @@
 // Tindeklub > Gear
 // ==================================================
 
+article[class*="gear"] {
+
+	.container {
+		@include outer-container;
+		@include pad;
+
+		#details,
+		#tech-specs {
+			@include span-columns(12);
+			//@include span-columns(6);
+			//@include omega(2n);
+			@include pad;
+		}
+
+		#details {
+			margin-bottom: em(20);
+		}
+
+		#images,
+		#usage-log,
+		#notes {
+			@include span-columns(12);
+			@include pad;
+		}
+
+		#tech-specs {
+			input {
+				&[type=text],
+				&[type=number] {
+					width: 90%;
+				}
+			}
+		}
+
+		#usage-log {
+			ul {
+				@include list-reset;
+
+				.entry {
+					border-top: 1px solid rgba($white, .05);
+					border-bottom: 1px solid rgba($black, .3);
+					padding: em(10);
+
+					.meta {
+						font-size: .9em;
+						margin-bottom: em(10);
+					}
+
+					&:first-child {
+						border-top: none;
+					}
+
+					&:last-child {
+						border-bottom: none;
+					}
+				}
+			}
+		}
+	}
+
+	> header {
+		nav {
+			a {
+				font-family: $font-family-sans;
+				padding: 0 ($padding-horizontal / 2);
+
+				&:first-child {
+					padding-left: 0;
+				}
+			}
+		}
+	}
+
+	#actions {
+		a {
+			@include button;
+			&#retire-gear { @include button($orange); }
+			&#delete-gear { @include button($red); }
+		}
+	}
+
+	.unit {
+		margin-left: em(3);
+		&[title] {
+			cursor: help;
+		}
+	}
+
+	footer {
+		//border-top: 1px solid #d9d9d9;
+	}
+}
+
+// Lists
+ul,
+ol {
+	&.category-list {
+		@include list-reset;
+		@include outer-container;
+		@include pad(0 0 default 0);
+
+		li {
+			@include span-columns(6);
+			@include omega(2n);
+
+			a {
+				display: block;
+				@include button;
+			}
+		}
+	}
+}
+
+// Images
+#images {
+	ul {
+		@include list-reset;
+
+		li {
+			@include span-columns(4);
+			@include omega(3n);
+			@include pad(default 0);
+
+			img {
+				width: 100%;
+			}
+		}
+	}
+}
+

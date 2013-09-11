@@ -1,14 +1,13 @@
-extends ../layout
+extends ../layouts/default
 
-block content
-	article.gear(role="main")
+block main
+	article.gear-list
 		header
 			.container
-				h1
-					!= title
-					- var count = gearList.length
-					- var text = count == 1 ? "item" : "items"
-					span #{count + " " + text}
+				- var count = gearList.length
+				- var text = count == 1 ? "item" : "items"
+				h1 Gear list
+				h2= count + " " + text
 
 		.block
 			.container

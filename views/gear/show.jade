@@ -1,18 +1,20 @@
-extends ../layout
+extends ../layouts/default
 
-block content
-	article.gear(role="main")
+block main
+	article.gear
 		header
 			.container
-				h1 #{gear.name} <span>#{gear.manufacturer}</span>
+				h1= gear.name
+				h2= gear.manufacturer
 				nav
 					a(href="#details") Details
 					|
 					a(href="#tech-specs") Tech specs
+					if gear.images.length
+						|
+						a(href="#images") Images
 					|
 					a(href="#usage-log") Usage log
-					|
-					a(href="#images") Images
 
 		.block.details
 			.container
@@ -39,9 +41,13 @@ block content
 							th Serial number
 							td= gear.serial_number
 					h3 Certifications
-					ul
-						for cert in gear.certifications.split(",")
-							li= cert
+					- var certifications = gear.certifications.split(",")
+					if certifications.length && certifications[0] != ""
+						ul
+							for cert in certifications
+								li= cert
+					else
+						p: em No certifications registered!
 
 				#tech-specs
 					h2 Tech specs
@@ -54,6 +60,17 @@ block content
 									- var meta = metadata[key]
 									if meta.unit
 										span.unit(title=meta.unit.name)= meta.unit.symbol
+
+		if gear.images.length
+			.block.images
+				.container
+					#images
+						h2 Images
+						ul
+							for img in gear.images
+								li
+									a(href=img.rel)
+										img(src=img.versions.thumbnail.rel, alt=img.name)
 		.block.log
 			.container
 				#usage-log
@@ -71,7 +88,7 @@ block content
 										= entry.comment
 					else
 						p: em No entries in the usage log!
-					
+
 					- var action = "/gear/" + gear._id + "/log"
 					form(action=action, method="post")
 						h4 Add new log entry
@@ -80,7 +97,7 @@ block content
 							div: input(type="text", name="date")
 						div
 							label(for="comment") Comment
-							div: textarea(name="comment")
+							div: textarea(name="comment", rows="4")
 
 						input(type="submit", value="Add log entry")
 

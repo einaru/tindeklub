@@ -1,11 +1,12 @@
-extends ../layout
+extends ../layouts/default
 
-block content
+block main
 	- var action = "/gear"
 	- action += gear.isNew ? "" : "/" + gear._id
 	- var title = gear.isNew ? "New" : "Edit"
-	article.gear(role="main")
-		form(action=action, method="post")
+	article.gear
+		form(action=action, method="post", enctype="multipart/form-data")
+			input(type="hidden", name="category", value=gear.category)
 			if (!gear.isNew)
 				input(type="hidden", name="_method", value="put")
 			header
@@ -51,12 +52,21 @@ block content
 									- var type = meta.type || "text"
 									- var name = "tech_specs[" + attr + "]"
 									- var value = gear.isNew ? "" : gear.tech_specs[name]
-									input(type=type, name=name, value=value)
+									if type == "number"
+										input(type=type, name=name, min="0", value=value)
+									else
+										input(type=type, name=name, value=value)
 									if meta.unit
 										span.unit(title=meta.unit.name)= meta.unit.symbol
+
+					#images
+						h2 Images
+						div
+							div
+								input(type="file", name="images", multiple)
+
 			footer
 				.container
 					#actions
 						input(type="submit", value="Save")
-						input(type="reset", value="Reset")
 						a(href=action) Cancel

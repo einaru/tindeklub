@@ -66,16 +66,17 @@ exports.newCategory = function(req, res) {
 };
 
 exports.create = function(req, res) {
-	var gear = new Gear(req.body);
-	gear.save(function(err) {
-		console.log(!err);
+	var gear = new Gear(req.body),
+		images = req.files.images;
+
+	gear.uploadAndSave(images, function(err) {
 		if (!err) {
 			req.flash("info", "Successfully added new gear");
 			return res.redirect("/gear/" + gear._id);
 		}
 
-	console.log(err);
-	res.render("gear/new-category", {
+		console.log(err);
+		res.render("gear/new-category", {
 			title: "New " + gear.category,
 			gear: gear,
 			metadata: req.metadata,
@@ -99,10 +100,12 @@ exports.edit = function(req, res) {
 };
 
 exports.update = function(req, res) {
-	var gear = req.gear;
+	var gear = req.gear,
+		images = req.files.images;
+
 	gear = _.extend(gear, req.body);
 
-	gear.save(function(err) {
+	gear.uploadAndSave(images, function(err) {
 		if (!err) {
 			req.flash("info", "Successfully updated gear");
 			return res.redirect("/gear/" + gear._id);
