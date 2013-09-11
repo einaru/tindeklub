@@ -2,7 +2,7 @@
 // Tindeklub > Gear
 // ==================================================
 
-article[role=main] {
+article[class*="gear"] {
 
 	.container {
 		@include outer-container;
@@ -63,22 +63,6 @@ article[role=main] {
 	}
 
 	> header {
-		background-color: $white;
-
-		h1 {
-			span {
-				// Mobile
-				display: block;
-				font-size: .7em;
-				color: lighten($black, 35);
-				color: $orange-dark;
-				//// TODO Tablet and greater
-				//display: inline;
-				//font-size: .7em;
-				//margin-left: em(5);
-			}
-		}
-
 		nav {
 			a {
 				font-family: $font-family-sans;
@@ -91,20 +75,18 @@ article[role=main] {
 		}
 	}
 
-	&.gear {
-		#actions {
-			a {
-				@include button;
-				&#retire-gear { @include button($orange); }
-				&#delete-gear { @include button($red); }
-			}
+	#actions {
+		a {
+			@include button;
+			&#retire-gear { @include button($orange); }
+			&#delete-gear { @include button($red); }
 		}
+	}
 
-		.unit {
-			margin-left: em(3);
-			&[title] {
-				cursor: help;
-			}
+	.unit {
+		margin-left: em(3);
+		&[title] {
+			cursor: help;
 		}
 	}
 

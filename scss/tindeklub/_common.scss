@@ -1,0 +1,26 @@
+// ==================================================
+// Tindeklub > Common
+// ==================================================
+
+article {
+	> header {
+		background-color: $white;
+
+		h1 {
+			margin-bottom: 0;
+		}
+
+		h2 {
+			color: $orange-dark;
+			margin-top: 0;
+
+			a {
+				color: inherit;
+
+				&:hover {
+					color: $orange;
+				}
+			}
+		}
+	}
+}
