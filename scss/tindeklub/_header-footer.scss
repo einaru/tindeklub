@@ -6,6 +6,7 @@
 header[role=banner] {
 	font-family: $font-family-sans;
 	background-color: lighten($black, 10);
+	height: em(35);
 
 	h1 {
 		margin: 0;
@@ -30,37 +31,11 @@ header[role=banner] {
 		}
 	}
 	.actions {
-		@include span-columns(3);
+		@include span-columns(9);
+		text-align: right;
+		line-height: em(30);
 
-		#nav-toggle,
-		#login {
-		}
-
-		#nav-toggle {
-		}
 	}
-
-	nav {
-		@include span-columns(6);
-
-		ul {
-			@include list-reset;
-		}
-
-		li {
-			display: inline;
-
-			a {
-				display: inline-block;
-
-			}
-			&:last-child {
-				a {
-				}
-			}
-		}
-	}
-
 }
 
 // Footer

@@ -8,16 +8,15 @@
  */
 
 var mongoose = require("mongoose"),
+	passport = require("passport"),
 	express = require("express"),
 	path = require("path"),
 	fs = require("fs"),
 	env = process.env.NODE_ENV || "development",
 	config = require("./config/config")[env];
 
-// Setup mongoDB connection
+// Setup mongoDB connection and load models
 mongoose.connect(config.db);
-
-// Bootstrap models
 var modelsPath = path.join(config.root, "/app/models");
 fs.readdirSync(modelsPath).forEach(function(file) {
 	if(~file.indexOf(".js")) {
@@ -25,15 +24,19 @@ fs.readdirSync(modelsPath).forEach(function(file) {
 	}
 });
 
-// Setup express
-var app = express();
-require("./config/express")(app, config);
+// Configure passport
+require("./config/passport")(passport, config);
 
-// Setup appliction routes
-require("./config/routes")(app);
+// Configure express
+var app = express();
+require("./config/express")(app, config, passport);
+
+// Configure application routes
+require("./config/routes")(app, passport);
 
 var port = process.env.PORT || 3000;
 app.listen(port);
-console.log("Tindeklub kjører i god stil på http://localhost:" + port);
+console.log("Tindeklub » i god stil @ http://localhost:" + port);
 
 exports = module.exports = app;
+

@@ -1,0 +1,29 @@
+extends ../layouts/nobanner
+
+block main
+	article.user-registration
+		.container
+			h1 Tindeklub registration
+			form#registration-form(action="/register", method="post")
+				div
+					label(for="name.first") First name
+					div
+						input(type="text", name="name.first")
+				div
+					label(for="name.last") Last name
+					div
+						input(type="text", name="name.last")
+				div
+					label(for="email") Email
+					div
+						input(type="email", name="email")
+				div
+					label(for="password") Password
+					div
+						input(type="password", name="password")
+
+				.actions
+					input(type="submit", value="Register")
+					p
+						<strong>Already got an account?</strong> Login <a href="/login">here</a>.
+

@@ -1,0 +1,10 @@
+extends ../layouts/default
+
+block main
+	article.user-profile
+		header
+			.container
+				figure
+					img(src=user.picture)
+				h1= user.fullname
+				h2: a(href="mailto:" + user.email)= user.email

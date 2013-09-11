@@ -23,6 +23,8 @@
 
 // Tindeklub partials
 @import "tindeklub/header-footer";
+@import "tindeklub/common";
+@import "tindeklub/user";
 @import "tindeklub/gear";
 
 // ==================================================
@@ -36,9 +38,6 @@
 // ==================================================
 // Blocks for styling
 // ==================================================
-$block-bg-color:      darken($white, 7);
-$block-bg-color-dark: #222;
-$block-border-color:  darken($white, 15);
 
 .block {
 	background-color: darken($white, 7);

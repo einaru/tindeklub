@@ -1,10 +1,10 @@
-extends ../layout
+extends ../layouts/default
 
-block content
+block main
 	- var action = "/gear"
 	- action += gear.isNew ? "" : "/" + gear._id
 	- var title = gear.isNew ? "New" : "Edit"
-	article.gear(role="main")
+	article.gear
 		form(action=action, method="post", enctype="multipart/form-data")
 			input(type="hidden", name="category", value=gear.category)
 			if (!gear.isNew)
