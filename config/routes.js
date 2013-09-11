@@ -11,7 +11,7 @@ var gear = require("../app/controllers/gear");
 
 module.exports = function(app) {
 	app.get("/", function(req, res) {
-		return res.redirect("/gear");
+		res.redirect("/gear");
 	});
 
 	// Gear routes

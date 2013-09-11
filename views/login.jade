@@ -1,0 +1,20 @@
+extends layouts/nobanner
+
+block main
+	main(role="main")
+		.container
+			h1 Login
+			form(action="/login", method="post")
+				div
+					label(for=everyauth.password.loginFormFieldName) Email
+					div
+						input(type="email", name=everyauth.password.loginFormFieldName, value=email)
+				div
+					label(for=everyauth.password.passwordFormFieldName) Password
+					div
+						input(type="password", name=everyauth.password.passwordFormFieldName)
+				.actions
+					input(type="submit", value="Login")
+					p
+						<strong>Don't have an account?</strong> Register <a href="/register">here</a>.
+

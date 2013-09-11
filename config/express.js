@@ -22,7 +22,10 @@ module.exports = function(app, config) {
 
 	app.configure(function() {
 		app.use(express.cookieParser("lvngthdrm"));
-		app.use(express.session({ cookie: { maxAge: 60000 }}));
+		app.use(express.session({
+			secret: "lvnghdrm",
+			cookie: { maxAge: 60000 }
+		}));
 		app.use(express.bodyParser({
 			uploadDir: config.uploadDir
 		}));
