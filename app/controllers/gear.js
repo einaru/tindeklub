@@ -69,6 +69,8 @@ exports.create = function(req, res) {
 	var gear = new Gear(req.body),
 		images = req.files.images;
 
+	gear.user = req.user;
+
 	gear.uploadAndSave(images, function(err) {
 		if (!err) {
 			req.flash("info", "Successfully added new gear");

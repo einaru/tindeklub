@@ -31,15 +31,15 @@ module.exports = function(app, passport) {
 
 	// Gear routes
 	app.get("/gear", gear.list);
-	app.get("/gear/new", gear.new);
-	app.get("/gear/new/:category", gear.newCategory);
-	app.post("/gear", gear.create);
+	app.get("/gear/new", ensureAuthenticated, gear.new);
+	app.get("/gear/new/:category", ensureAuthenticated, gear.newCategory);
+	app.post("/gear", ensureAuthenticated, gear.create);
 	app.get("/gear/:id", gear.show);
-	app.get("/gear/:id/edit", gear.edit);
-	app.put("/gear/:id", gear.update);
-	app.del("/gear/:id", gear.remove);
+	app.get("/gear/:id/edit", ensureAuthenticated, gear.edit);
+	app.put("/gear/:id", ensureAuthenticated, gear.update);
+	app.del("/gear/:id", ensureAuthenticated, gear.remove);
 
-	app.post("/gear/:id/log", log.create);
+	app.post("/gear/:id/log", ensureAuthenticated, log.create);
 
 	// Index route
 	app.get("/", function(req, res) {

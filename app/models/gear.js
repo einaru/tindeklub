@@ -35,6 +35,7 @@ var gearStates = ["never used", "in use", "retired", "lost", "sold"];
 var GearSchema = new Schema({
 	name: { type: String },
 	manufacturer: { type: String },
+	owner: { type: Schema.ObjectId, ref: "User" },
 	category: { type: String },
 	state: { type: String, enum: gearStates, default: gearStates[0] },
 	added: { type: Date, default: Date.now },
@@ -47,7 +48,7 @@ var GearSchema = new Schema({
 	usage_log: [{
 		added: { type: Date, default: Date.now },
 		date: { type: Date },
-		// TODO add user field
+		user: { type: Schema.ObjectId, ref: "User" },
 		comment: { type: String }
 	}],
 	images: [{
@@ -55,7 +56,7 @@ var GearSchema = new Schema({
 		type: { type: String },
 		path: { type: String },
 		rel: { type: String },
-		versions: {
+		versions: {
 			medium: {
 				path: { type: String },
 				rel: { type: String }
@@ -136,7 +137,7 @@ GearSchema.methods = {
 		};
 
 		var self = this;
-		
+
 		for (var i = 0, l = images.length; i < l; i++) {
 			var file = images[i];
 
@@ -196,11 +197,11 @@ GearSchema.methods = {
 	 * @param {function} callback
 	 * @api private
 	 */
-	addLogEntry: function(/*user, */entry, callback) {
+	addLogEntry: function(user, entry, callback) {
 		this.usage_log.push({
 			date: entry.date,
 			comment: entry.comment,
-			//user: user._id
+			user: user._id
 		});
 
 		this.save(callback);
@@ -219,8 +220,8 @@ GearSchema.statics = {
 	 */
 	load: function(id, callback) {
 		this.findOne({ _id: id })
-			// TODO .populate("user", "name email username")
-			// TODO .populate("usage_log.user", "name email username")
+			.populate("user", "name email")
+			.populate("usage_log.user", "name email")
 			.exec(callback);
 	},
 
@@ -234,7 +235,7 @@ GearSchema.statics = {
 	list: function(options, callback) {
 		var criteria = options.criteria || {};
 		this.find(criteria)
-			// TODO .populate("user", "name username")
+			.populate("user", "name email")
 			.exec(callback);
 	},
 
