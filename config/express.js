@@ -24,10 +24,10 @@ module.exports = function(app, config, passport) {
 		app.use(express.favicon(path.join(config.root, "/public/img/favicon.ico")));
 		app.use(express.static(path.join(config.root, "/public")));
 
-		app.use(express.methodOverride());
 		app.use(express.bodyParser({
 			uploadDir: config.uploadDir
 		}));
+		app.use(express.methodOverride());
 		app.use(express.cookieParser());
 
 		// Express/mongoDB session storage
