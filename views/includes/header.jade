@@ -1,0 +1,17 @@
+header(role="banner")
+	.container
+		.branding
+			a#logo(href="/") Tindeklub
+
+		nav(role="navigation")
+			a(href="/login") Login
+			a(href="/register") Register
+			a(href="/logout") Logout
+
+		.actions
+			if (user)
+				a(href="/user/profile")= user.name.first
+			else
+				a(href="/login") Login
+
+

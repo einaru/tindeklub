@@ -3,22 +3,11 @@ html
 	head
 		include ../includes/head
 	body
-		header(role="banner")
-			.container
-				.branding
-					a#logo(href="/") Tindeklub
-				.actions
-					if (user)
-						a(href="/user/profile")= user.name.first
-					else
-						a(href="/login") Login
+		include ../includes/header
+
+		include ../includes/messages
 
 		main(role="main")
 			block main
 
-		footer(role="contentinfo")
-			.container
-				p.copyright
-					| Copyright &copy; Einar Uvsløkk
-					br
-					| All rights reserved
+		include ../includes/footer
