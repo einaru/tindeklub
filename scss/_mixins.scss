@@ -13,3 +13,13 @@
 	list-style: none;
 }
 
+// Images
+// ==================================================
+
+@mixin img-rounded($br: $border-radius) {
+	border-radius: $br;
+}
+
+@mixin img-circle {
+	@include img-rounded(50%);
+}
