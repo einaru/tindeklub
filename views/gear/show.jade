@@ -81,11 +81,10 @@ block main
 								li.entry
 									.meta
 										time(datetime=fmt.date.iso(entry.date))= fmt.date.human(entry.date)
-										// TODO Add user
-										//| -
-										//span= entry.user
+										|  - 
+										a(href="mailto:" + entry.user.email)= entry.user.fullname
 									.comment
-										= entry.comment
+										!= md(entry.comment)
 					else
 						p: em No entries in the usage log!
 

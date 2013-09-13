@@ -27,7 +27,8 @@
     "passport-local": "~0.1.6",
     "underscore": "~1.5.1",
     "mkdirp": "~0.3.5",
-    "gm": "~1.13.0"
+    "gm": "~1.13.0",
+    "marked": "~0.2.9"
   },
   "devDependencies": {
     "nodemon": "~0.7.10",

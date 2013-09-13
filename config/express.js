@@ -10,6 +10,7 @@
 var express = require("express"),
 	flash = require("connect-flash"),
 	path = require("path"),
+	marked = require("marked"),
 	MongoStore = require("connect-mongo")(express);
 
 module.exports = function(app, config, passport) {
@@ -49,6 +50,7 @@ module.exports = function(app, config, passport) {
 
 		// Locals
 		app.locals.fmt = require(path.join(config.root, "/lib/fmt"));
+		app.locals.md = marked;
 
 		// Middlewares
 		app.get("*", function(req, res, next) {
