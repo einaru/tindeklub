@@ -2,39 +2,74 @@
 // Tindeklub > Header & Footer
 // ==================================================
 
+.js nav[role=navigation] {
+	overflow: hidden;
+	max-height: 0;
+}
+
 // Header
 header[role=banner] {
 	font-family: $font-family-sans;
 	background-color: lighten($black, 10);
-	height: em(35);
-
-	h1 {
-		margin: 0;
-		display: inline-block;
-	}
-
-	a {
-		color: $white;
-	}
+	color: $white;
 
 	.container {
 		@include outer-container;
-		@include pad(em(3) default);
+		@include pad(0 default);
 	}
 
-	.branding {
-		@include span-columns(3);
-		font-size: 1.3em;
+	a {
+		color: inherit;
+		font-size: 1.0em;
+		padding: ($padding-vertical / 2);
 
-		#logo {
+		&#logo {
 			font-weight: bold;
+			float: left;
+		}
+
+		&#login,
+		&#logout,
+		&#user-profile {
+			float: right;
+
+			&:after {
+				content: "|";
+				padding-left: $padding-vertical;
+				color: #444;
+			}
+		}
+
+		&#nav-toggle {
+			float: right;
+			display: block;
+
+			&.active {
+				background-color: #444;
+			}
 		}
 	}
-	.actions {
-		@include span-columns(9);
-		text-align: right;
-		line-height: em(30);
 
+	nav[role=navigation] {
+		clear: both;
+
+		&.active {
+			max-height: 15em;
+		}
+
+		a {
+			display: block;
+			border-top: 1px solid #444;
+
+			&:hover {
+				background-color: #222;
+			}
+
+			&:after {
+				content: "»";
+				float: right;
+			}
+		}
 	}
 }
 
@@ -46,3 +81,46 @@ footer[role=contentinfo] {
 	}
 }
 
+@media screen and (min-width: 48.25em) {
+	.js nav[role=navigation] {
+		max-height: none;
+	}
+
+	header[role=banner] {
+		a {
+			&#login,
+			&#logout,
+			&#user-profile {
+				&:after {
+					content: none;
+				}
+			}
+
+			&#nav-toggle {
+				display: none;
+			}
+		}
+
+		nav[role=navigation] {
+			display: inline;
+
+			a {
+				display: inline-block;
+				border: none;
+
+				&:after {
+					content: "|";
+					padding-left: ($padding-vertical);
+					color: #444;
+				}
+
+				&:last-child {
+					&:after {
+						content: none;
+					}
+				}
+			}
+
+		}
+	}
+}

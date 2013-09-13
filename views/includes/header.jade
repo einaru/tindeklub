@@ -1,17 +1,13 @@
 header(role="banner")
 	.container
-		.branding
-			a#logo(href="/") Tindeklub
+		a#logo(href="/") Tindeklub
+		a#nav-toggle(href="#menu") Menu
+		if (user)
+			a#user-profile(href="/user/profile")= user.name.first
+		else
+			a#login(href="/login") Login
 
-		nav(role="navigation")
-			a(href="/login") Login
-			a(href="/register") Register
-			a(href="/logout") Logout
-
-		.actions
-			if (user)
-				a(href="/user/profile")= user.name.first
-			else
-				a(href="/login") Login
-
-
+		nav#menu(role="navigation")
+			a(href="#") Journal
+			a(href="/gear") Gear
+			a(href="#") Beta
