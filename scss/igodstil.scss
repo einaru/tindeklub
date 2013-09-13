@@ -30,6 +30,48 @@
 // ==================================================
 // Messages
 // ==================================================
+
+@mixin message-variant($bg-color, $color) {
+	background-color: rgba($bg-color, .5);
+	border-color: rgba($bg-color, .5);
+	color: $color;
+}
+
+#messages {
+
+	ul {
+		@include list-reset;
+	}
+
+	li {
+		border-bottom: 1px solid;
+
+		strong {
+			text-transform: capitalize;
+		}
+
+		a {
+			color: inherit;
+			text-decoration: underline;
+
+			&:hover {
+				text-decoration: none;
+			}
+		}
+
+		&[empty] {
+			display: none;
+		}
+
+		// Default message color
+		@include message-variant($blue, $blue-dark);
+
+		&.success { @include message-variant($green, $green-dark); }
+		&.warning { @include message-variant($yellow, $yellow-dark); }
+		&.caution,
+		&.error   { @include message-variant($red, $red-dark); }
+	}
+}
 .message {
 	@include outer-container;
 	@include pad(em(20) default);
