@@ -3,15 +3,15 @@ extends ../layouts/default
 block main
 	- var action = "/gear"
 	- action += gear.isNew ? "" : "/" + gear._id
-	- var title = gear.isNew ? "New" : "Edit"
 	article.gear
+		header
+			.container
+				h1= title
+				h2= fmt.str.capitalize(gear.category)
 		form(action=action, method="post", enctype="multipart/form-data")
 			input(type="hidden", name="category", value=gear.category)
 			if (!gear.isNew)
 				input(type="hidden", name="_method", value="put")
-			header
-				.container
-					h1 #{title} <span>#{fmt.str.capitalize(gear.category)}</span>
 			.block.details
 				.container
 					#details

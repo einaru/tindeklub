@@ -81,7 +81,7 @@ block main
 								li.entry
 									.meta
 										time(datetime=fmt.date.iso(entry.date))= fmt.date.human(entry.date)
-										|  - 
+										!= " - "
 										a(href="mailto:" + entry.user.email)= entry.user.fullname
 									.comment
 										!= md(entry.comment)

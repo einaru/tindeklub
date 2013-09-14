@@ -59,7 +59,7 @@ exports.new = function(req, res) {
 
 exports.newCategory = function(req, res) {
 	res.render("gear/new-category", {
-		title: "New " + req.gear.category,
+		title: "New gear",
 		gear: req.gear,
 		metadata: req.metadata
 	});
@@ -79,7 +79,7 @@ exports.create = function(req, res) {
 
 		console.log(err);
 		res.render("gear/new-category", {
-			title: "New " + gear.category,
+			title: "New gear",
 			gear: gear,
 			metadata: req.metadata,
 			errors: err

@@ -8,7 +8,7 @@ block main
 		.block
 			.container
 				#categories
-					h2 Please select a category
+					h2 Select a category
 					ul.category-list
 						for obj, category in categories
 							li: a(href="#{'/gear/new/' + category}")= fmt.str.capitalize(category)

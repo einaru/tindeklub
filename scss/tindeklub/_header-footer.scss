@@ -24,6 +24,7 @@ header[role=banner] {
 		padding: ($padding-vertical / 2);
 
 		&#logo {
+			padding-right: ($padding-vertical * 2);
 			font-weight: bold;
 			float: left;
 		}
