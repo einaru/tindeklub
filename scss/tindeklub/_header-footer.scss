@@ -21,10 +21,10 @@ header[role=banner] {
 	a {
 		color: inherit;
 		font-size: 1.0em;
-		padding: ($padding-vertical / 2);
+		padding: $padding;
 
 		&#logo {
-			padding-right: ($padding-vertical * 2);
+			margin-right: em(20);
 			font-weight: bold;
 			float: left;
 		}
@@ -34,11 +34,11 @@ header[role=banner] {
 		&#user-profile {
 			float: right;
 
-			&:after {
-				content: "|";
-				padding-left: $padding-vertical;
-				color: #444;
-			}
+			//&:after {
+			//	content: "|";
+			//	padding-left: $padding-vertical;
+			//	color: #444;
+			//}
 		}
 
 		&#nav-toggle {
@@ -48,6 +48,8 @@ header[role=banner] {
 			&.active {
 				background-color: #444;
 			}
+
+			border-left: 1px solid #444;
 		}
 	}
 
@@ -107,18 +109,9 @@ footer[role=contentinfo] {
 
 			a {
 				display: inline-block;
-				border: none;
 
 				&:after {
-					content: "|";
-					padding-left: ($padding-vertical);
-					color: #444;
-				}
-
-				&:last-child {
-					&:after {
-						content: none;
-					}
+					content: none;
 				}
 			}
 
