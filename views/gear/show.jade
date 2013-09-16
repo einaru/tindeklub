@@ -16,89 +16,9 @@ block main
 					|
 					a(href="#usage-log") Usage log
 
-		.block.details
-			.container
-				#details
-					h2 Details
-					table
-						tr
-							th Category
-							td= fmt.str.capitalize(gear.category)
-						tr
-							th State
-							td: span.label(data-state=gear.state)= fmt.str.capitalize(gear.state)
-						tr
-							th Purcased
-							td
-								if Date.parse(gear.purcased)
-									time(datetime=fmt.date.iso(gear.purcased))= fmt.date.human(gear.purcased)
-						tr
-							th First used
-							td
-								if Date.parse(gear.first_used)
-									time(datetime=fmt.date.iso(gear.first_used))= fmt.date.human(gear.first_used)
-						tr
-							th Serial number
-							td= gear.serial_number
-					h3 Certifications
-					- var certifications = gear.certifications.split(",")
-					if certifications.length && certifications[0] != ""
-						ul
-							for cert in certifications
-								li= cert
-					else
-						p: em No certifications registered!
-
-				#tech-specs
-					h2 Tech specs
-					table
-						for val, key in gear.tech_specs
-							tr
-								th= fmt.str.capitalize(key)
-								td
-									!= val
-									- var meta = metadata[key]
-									if meta.unit
-										span.unit(title=meta.unit.name)= meta.unit.symbol
-
-		if gear.images.length
-			.block.images
-				.container
-					#images
-						h2 Images
-						ul
-							for img in gear.images
-								li
-									a(href=img.rel)
-										img(src=img.versions.thumbnail.rel, alt=img.name)
-		.block.log
-			.container
-				#usage-log
-					h2 Usage log
-					if gear.usage_log.length
-						ul
-							for entry in gear.usage_log
-								li.entry
-									.meta
-										time(datetime=fmt.date.iso(entry.date))= fmt.date.human(entry.date)
-										!= " - "
-										a(href="mailto:" + entry.user.email)= entry.user.fullname
-									.comment
-										!= md(entry.comment)
-					else
-						p: em No entries in the usage log!
-
-					- var action = "/gear/" + gear._id + "/log"
-					form(action=action, method="post")
-						h4 Add new log entry
-						div
-							label(for="date") Date
-							div: input(type="text", name="date")
-						div
-							label(for="comment") Comment
-							div: textarea(name="comment", rows="4")
-
-						input(type="submit", value="Add log entry")
+		include includes/details
+		include includes/img-gallery
+		include includes/usage-log
 
 		footer
 			.container

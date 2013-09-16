@@ -1,0 +1,14 @@
+if gear.images.length
+	.block.images
+		.container
+			#images
+				h2 Images
+				#img-gallery
+					figure#img-container
+						img(src=gear.images[0].versions.medium.rel)
+					nav
+						ul
+							for img in gear.images
+								li
+									a(href=img.versions.medium.rel)
+										img(src=img.versions.thumbnail.rel, alt=img.name)
