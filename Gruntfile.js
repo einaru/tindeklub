@@ -8,8 +8,19 @@ module.exports = function(grunt) {
 		pkg: grunt.file.readJSON("package.json"),
 		sass: {
 			dist: {
+				options: {
+					style: "expanded"
+				},
 				files: {
 					"public/css/igodstil.css": "scss/igodstil.scss"
+				}
+			},
+			prod: {
+				options: {
+					style: "compressed"
+				},
+				files: {
+					"public/css/igodstil.min.css": "scss/igodstil.scss"
 				}
 			}
 		},
@@ -23,16 +34,11 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks("grunt-contrib-sass");
 	grunt.loadNpmTasks("grunt-contrib-watch");
 	grunt.registerTask("default", ["watch"]);
-				
 
-	grunt.registerTask("say-hai", "Say hai!", function() {
-		console.log("Hai!");
-	});
 
 	/*
 	 * MongoDB
 	 */
-
 	grunt.registerTask("dbdrop", "drop the database", function() {
 		var done = this.async(),
 			mongoose = require("mongoose");
