@@ -66,11 +66,16 @@ block main
 				.container
 					#images
 						h2 Images
-						ul
-							for img in gear.images
-								li
-									a(href=img.rel)
-										img(src=img.versions.thumbnail.rel, alt=img.name)
+						#img-gallery
+							figure#img-container
+								img(src=gear.images[0].versions.medium.rel)
+							nav
+								ul
+									for img in gear.images
+										li
+											a(href=img.versions.medium.rel)
+												img(src=img.versions.thumbnail.rel, alt=img.name)
+
 		.block.log
 			.container
 				#usage-log
