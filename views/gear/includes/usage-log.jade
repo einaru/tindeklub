@@ -1,0 +1,28 @@
+.block.log
+	.container
+		#usage-log
+			h2 Usage log
+			if gear.usage_log.length
+				ul
+					for entry in gear.usage_log
+						li.entry
+							.meta
+								time(datetime=fmt.date.iso(entry.date))= fmt.date.human(entry.date)
+								!= " - "
+								a(href="mailto:" + entry.user.email)= entry.user.fullname
+							.comment
+								!= md(entry.comment)
+			else
+				p: em No entries in the usage log!
+
+			- var action = "/gear/" + gear._id + "/log"
+			form(action=action, method="post")
+				h4 Add new log entry
+				div
+					label(for="date") Date
+					div: input(type="text", name="date")
+				div
+					label(for="comment") Comment
+					div: textarea(name="comment", rows="4")
+
+				input(type="submit", value="Add log entry")
