@@ -6,5 +6,8 @@ block main
 			.container
 				figure
 					img(src=user.picture)
-				h1= user.fullname
-				h2: a(href="mailto:" + user.email)= user.email
+				.info
+					h1= user.fullname
+					h2: a(href="mailto:" + user.email)= user.email
+					nav
+						a(href="/logout") Log out

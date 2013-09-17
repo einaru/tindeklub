@@ -1,3 +1,23 @@
 // ==================================================
 // Tindeklub > User
 // ==================================================
+
+article[class*="user"] {
+	@include media($tablet) {
+		header {
+			figure,
+			.info {
+				display: inline-block;
+			}
+
+			.info {
+				@include pad(0 default);
+
+				h1,
+				h2 {
+					margin-top: 0;
+				}
+			}
+		}
+	}
+}

@@ -18,14 +18,18 @@ article[class*="user"] {
 	}
 
 	@include media($tablet) {
-		@include span-columns(6);
-		@include shift(3);
+		#user-form {
+			@include span-columns(6);
+			@include shift(3);
+		}
 		
 	}
 
 	@include media($laptop) {
-		@include span-columns(4);
-		@include shift(4);
+		#user-form {
+			@include span-columns(4);
+			@include shift(4);
+		}
 	}
 }
 
