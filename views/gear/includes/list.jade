@@ -1,0 +1,20 @@
+.block
+	.container
+		table
+			thead
+				th Name
+				//th Manufacturer
+				th Category
+				//th Last modified
+				th State
+			tbody
+				for gear in gearList
+					tr
+						td: a(href="#{'/gear/' + gear._id}")= gear.name
+						//td= gear.manufacturer
+						td= fmt.str.capitalize(gear.category)
+						//td: time(datetime=fmt.date.iso(gear.last_modified))= fmt.date.human(gear.last_modified)
+						- var state = gear.state == 'never used' ? 'new' : gear.state
+						td: span.label(data-state=gear.state)= fmt.str.capitalize(state)
+
+
