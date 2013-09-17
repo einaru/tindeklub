@@ -43,7 +43,7 @@ module.exports = function(app, passport) {
 
 	// Index route
 	app.get("/", function(req, res) {
-		res.redirect("/gear");
+		res.render("index");
 	});
 
 	// Parameters

@@ -1,0 +1,80 @@
+// ==================================================
+// Tindeklub > Home
+// ==================================================
+
+article[class="home"] {
+	text-align: center;
+
+	img {
+		width: 100%;
+		max-width: 400px;
+		height: auto;
+
+		&:hover {
+			&[title] {
+				cursor: help;
+			}
+		}
+	}
+
+	blockquote {
+		//border-left: 10px solid #ccc;
+		font-size: 120%;
+		font-style: italic;
+		margin: 1.5em 10px;
+		padding: .5em 10px;
+		quotes: "\201C""\201D""\2018""\2019";
+
+		&:before {
+			content: open-quote;
+			font-size: 4em;
+			line-height: .1em;
+			margin-right: .25em;
+			vertical-align: -.4em;
+		}
+	}
+
+	nav {
+		font-size: 120%;
+
+		a {
+			padding: $padding;
+		}
+	}
+}
+
+	//html {
+	//	background: url(../img/storen.jpg) no-repeat center center fixed;
+	//	background-size: cover;
+
+	//	body {
+	//	}
+
+	//	.banner {
+	//		padding: $padding;
+	//		position: absolute;
+	//		bottom: em(20);
+	//		left: 0;
+	//		width: 100%;
+	//		background-color: rgba(0,0,0,.5);
+	//		color: $white;
+
+	//		a {
+	//			color: inherit;
+	//		}
+
+	//		.site {
+	//			padding: $padding;
+	//			display: inline-block;
+	//			font-weight: bold;
+	//		}
+	//		nav {
+	//			padding: $padding;
+	//			display: inline-block;
+
+	//			a {
+	//				display: block;
+	//			}
+	//		}
+	//	}
+	//}
