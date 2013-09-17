@@ -84,7 +84,7 @@ footer[role=contentinfo] {
 	}
 }
 
-@include media($mini-tablet) {
+@include media($mobile-landscape) {
 	.js nav[role=navigation] {
 		max-height: none;
 	}

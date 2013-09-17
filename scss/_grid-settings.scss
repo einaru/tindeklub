@@ -2,7 +2,7 @@
 
 $grid-columns: 12;
 
-$mini-tablet: new-breakpoint(min-width 468px);
-$tablet: new-breakpoint(min-width 768px);
-$laptop: new-breakpoint(min-width 960px);
-$desktop: new-breakpoint(min-width 1144px);
+$mobile-landscape: new-breakpoint(min-width 468px);
+$tablet:           new-breakpoint(min-width 768px);
+$laptop:           new-breakpoint(min-width 960px);
+$desktop:          new-breakpoint(min-width 1144px);
