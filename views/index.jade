@@ -12,6 +12,10 @@ block main
 							for img in images
 								div
 									img(src=img.data)
+						nav
+							- var i = images.length
+							- while(i--)
+								a &bull;
 
 					blockquote
 						| I de svarte tinder
@@ -33,8 +37,23 @@ block main
 	script(src="//cdnjs.cloudflare.com/ajax/libs/swipe/2.0/swipe.min.js")
 	script
 		(function() {
-			$('#slider').Swipe({
-				auto: 5000,
-				continuous: true
-			}).data('Swipe');
+			var nav = $('#slider').find('nav');
+
+			nav.find('a').first().addClass('active');
+
+			window.slider = new Swipe(document.getElementById('slider'), {
+				callback: function(index, elem) {
+					updateNav(index);
+				}
+			});
+
+			nav.on('click', 'a', function(e) {
+				var index = $(this).index();
+				slider.slide(index, 300);
+			});
+
+			function updateNav(index) {
+				nav.find('a').removeClass('active');
+				nav.find('a').eq(index).addClass('active');
+			}
 		})(Zepto);
