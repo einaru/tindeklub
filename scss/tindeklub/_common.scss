@@ -24,3 +24,30 @@ article {
 		}
 	}
 }
+
+// Blocks for styling
+// ==================================================
+
+.block {
+	background-color: darken($white, 7);
+	border-top: 1px solid;
+	border-bottom: 1px solid;
+	border-color: $block-border-color;
+
+	&.usage-log,
+	&.images {
+		color: $white;
+		background-color: $block-bg-color-dark;
+		border-color: transparent;
+	}
+
+	&.details {
+		border-bottom-color: transparent;
+	}
+
+	&.user-form {
+		background-color: transparent;
+		border: none;
+	}
+}
+

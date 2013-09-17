@@ -20,13 +20,3 @@ textarea {
 	padding: $padding;
 	width: 100%;
 }
-
-
-// Login & registration
-// ==================================================
-[role=main] {
-	.container {
-		@include outer-container;
-		@include pad;
-	}
-}

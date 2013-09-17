@@ -1,0 +1,89 @@
+// ==================================================
+// Tindeklub > Layout
+// ==================================================
+
+article {
+	.container {
+		@include outer-container;
+		@include pad;
+	}
+}
+
+// User
+// ==================================================
+
+article[class*="user"] {
+	#user-form {
+		@include span-columns(12);
+	}
+
+	@include media($tablet) {
+		@include span-columns(6);
+		@include shift(3);
+		
+	}
+
+	@include media($laptop) {
+		@include span-columns(4);
+		@include shift(4);
+	}
+}
+
+// Gear
+// ==================================================
+
+article[class*="gear"] {
+
+	#details,
+	#tech-specs,
+	#images,
+	#usage-log,
+	#actions {
+		@include span-columns(12);
+		@include pad;
+	}
+
+	#img-gallery {
+		nav {
+			ul {
+				@include outer-container;
+			}
+
+			li {
+				@include span-columns(3);
+				@include omega(4n);
+			}
+		}
+	}
+
+	ul,
+	ol {
+		&.gear-categories,
+		&.category-list {
+			@include outer-container;
+			@include pad(0 0 default);
+
+			li {
+				@include span-columns(6);
+				@include omega(2n);
+			}
+		}
+	}
+
+	@include media($laptop) {
+		#details,
+		#tech-specs {
+			@include span-columns(6);
+			@include omega(2n);
+		}
+
+		#img-gallery {
+			nav {
+				li {
+					@include span-columns(2);
+					@include omega(6n);
+				}
+			}
+		}
+	}
+}
