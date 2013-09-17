@@ -84,7 +84,7 @@ footer[role=contentinfo] {
 	}
 }
 
-@media screen and (min-width: 48.25em) {
+@include media($mini-tablet) {
 	.js nav[role=navigation] {
 		max-height: none;
 	}

@@ -4,73 +4,8 @@
 
 article[class*="gear"] {
 
-	.container {
-		@include outer-container;
-		@include pad;
-
-		#details,
-		#tech-specs {
-			@include span-columns(12);
-			//@include span-columns(6);
-			//@include omega(2n);
-			@include pad;
-		}
-
-		#details {
-			margin-bottom: em(20);
-		}
-
-		#images,
-		#usage-log,
-		#notes {
-			@include span-columns(12);
-			@include pad;
-		}
-
-		#tech-specs {
-			input {
-				&[type=text],
-				&[type=number] {
-					width: 90%;
-				}
-			}
-		}
-
-		#usage-log {
-			ul {
-				@include list-reset;
-
-				.entry {
-					border-top: 1px solid rgba($white, .05);
-					border-bottom: 1px solid rgba($black, .3);
-					padding: em(10);
-
-					.meta {
-						margin-bottom: em(10);
-						font-style: italic;
-						font-size: .9em;
-						color: #666;
-
-						a {
-							color: inherit;
-
-							&:hover {
-								text-decoration: underline;
-							}
-						}
-					}
-
-					&:first-child {
-						border-top: none;
-					}
-
-					&:last-child {
-						border-bottom: none;
-					}
-				}
-			}
-		}
-	}
+	// Header
+	// ==============================================
 
 	> header {
 		nav {
@@ -85,13 +20,150 @@ article[class*="gear"] {
 		}
 	}
 
+	// Details
+	// ==============================================
+
+	#details {
+		margin-bottom: em(20);
+	}
+
+	// Tech specs
+	// ==============================================
+
+	#tech-specs {
+		input {
+			&[type=text],
+			&[type=number] {
+				width: 90%;
+			}
+		}
+	}
+
+	// Usage log
+	// ==============================================
+
+	#usage-log {
+		ul {
+			@include list-reset;
+
+			.entry {
+				border-top: 1px solid rgba($white, .05);
+				border-bottom: 1px solid rgba($black, .3);
+				padding: em(10);
+
+				.meta {
+					margin-bottom: em(10);
+					font-style: italic;
+					font-size: .9em;
+					color: #666;
+
+					a {
+						color: inherit;
+
+						&:hover {
+							text-decoration: underline;
+						}
+					}
+				}
+
+				&:first-child {
+					border-top: none;
+				}
+
+				&:last-child {
+					border-bottom: none;
+				}
+			}
+		}
+
+		form {
+			padding-top: em(20);
+
+			input {
+			}
+
+			textarea,
+			input[type=text] {
+				background-color: $input-bg-color-dark;
+				border-color: $input-border-color-dark;
+				color: $white;
+			}
+
+			input[type=text] {
+			}
+		}
+	}
+
+	// Actions
+	// ==============================================
+
 	#actions {
 		a {
 			@include button;
-			&#retire-gear { @include button($orange); }
-			&#delete-gear { @include button($red); }
 		}
 	}
+
+	// Image gallery
+	// ==============================================
+
+	#img-gallery {
+		position: relative;
+
+		#img-container {
+			position: relative;
+			overflow: hidden;
+			margin: 0 auto .5em;
+			background-color: $input-bg-color-dark;
+			border: 1px solid $input-border-color-dark;
+
+			img {
+				display: block;
+				width: 100%;
+				box-sizing: border-box;
+			}
+
+			#img-list {
+				position: relative;
+				left: 0;
+				width: 100%;
+
+				ul {
+					@include list-reset;
+				}
+			}
+		}
+
+		nav {
+			overflow: hidden;
+			display: inline-block;
+
+			ul {
+				@include list-reset;
+			}
+
+			li {
+				border: 1px solid $input-border-color-dark;
+				transition: all .3s ease-out;
+
+				&:hover,
+				&:focus {
+					border-color: $blue;
+				}
+
+				&.active {
+					border-color: $orange-dark;
+				}
+			}
+
+			img {
+				width: 100%;
+				height: auto;
+			}
+		}
+	}
+
+	// Units
+	// ==============================================
 
 	.unit {
 		margin-left: em(3);
@@ -100,23 +172,12 @@ article[class*="gear"] {
 		}
 	}
 
-	footer {
-		//border-top: 1px solid #d9d9d9;
-	}
-}
+	// Category list
+	// ==============================================
 
-// Lists
-ul,
-ol {
-	&.category-list {
-		@include list-reset;
-		@include outer-container;
-		@include pad(0 0 default 0);
-
+	.gear-categories,
+	.category-list {
 		li {
-			@include span-columns(6);
-			@include omega(2n);
-
 			a {
 				display: block;
 				@include button;
@@ -125,61 +186,3 @@ ol {
 	}
 }
 
-// Image gallery
-#img-container {
-	position: relative;
-	overflow: hidden;
-	margin: 0 auto .5em;
-	background-color: lighten(#222, 10);
-	border: 1px solid darken(#222, 2);
-
-	img {
-		display: block;
-		width: 100%;
-		box-sizing: border-box;
-	}
-
-	#img-list {
-		position: relative;
-		left: 0;
-		width: 100%;
-		ul {
-			@include list-reset;
-		}
-	}
-}
-
-#img-gallery {
-	position: relative;
-
-	nav {
-		overflow: hidden;
-		display: inline-block;
-
-		ul {
-			@include outer-container;
-			@include list-reset;
-		}
-
-		li {
-			@include span-columns(3);
-			@include omega(4n);
-			border: 1px solid darken(#222, 2);
-			//transition: all .3s ease-out;
-
-			&:hover,
-			&:focus {
-				border-color: $blue;
-			}
-
-			&.active {
-				border-color: $orange-dark;
-			}
-		}
-
-		img {
-			width: 100%;
-			height: auto;
-		}
-	}
-}

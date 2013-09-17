@@ -14,7 +14,7 @@
 	white-space: nowrap;
 	@include label-variant;
 
-	&[data-state="never used"] {
+	&[data-state="new"] {
 		@include label-variant($green);
 	}
 	&[data-state="in use"] {
