@@ -1,7 +1,7 @@
 header(role="banner")
 	.container
 		a#logo(href="/") Tindeklub
-		a#nav-toggle(href="#menu") Menu
+		a#nav-toggle(href="#menu"): span.icon-menu
 		if (user)
 			a#user-profile(href="/user/profile")= user.name.first
 		else

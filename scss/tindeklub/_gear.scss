@@ -186,3 +186,36 @@ article[class*="gear"] {
 	}
 }
 
+article[class="gear-list"] {
+	table {
+		th,
+		td {
+			// Hide columns based on table cell indexes:
+			//
+			//   1 - Name
+			//   2 - Manufacturer
+			//   3 - Category
+			//   4 - State
+			//   5 - Icons
+			//
+			&:nth-child(2),
+			&:nth-child(5) {
+				display: none;
+			}
+
+			@include media($mobile-landscape) {
+				&:nth-child(2) {
+					display: table-cell;
+				}
+			}
+
+			@include media($tablet) {
+				&:nth-child(5) {
+					display: table-cell;
+				}
+			}
+
+		}
+	}
+}
+
