@@ -30,7 +30,7 @@ function setCerts(c) {
 	return c.split(",");
 }
 
-var gearStates = ["never used", "in use", "retired", "lost", "sold"];
+var gearStates = ["new", "in use", "retired", "lost", "sold"];
 
 var GearSchema = new Schema({
 	name: { type: String },
