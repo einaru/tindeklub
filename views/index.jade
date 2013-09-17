@@ -7,8 +7,11 @@ block main
 				.container
 					h1 Tindeklub
 
-					figure
-						img(src="/img/home-img.jpg", title="Store Skagastølstind")
+					#slider.swipe
+						.swipe-wrap
+							for img in images
+								div
+									img(src=img.data)
 
 					blockquote
 						| I de svarte tinder
@@ -23,13 +26,15 @@ block main
 						a(href="/gear") Gear
 						|
 						a(href="#") Beta
-	//.banner
-		.site
-			a(href="/") Tindeklub
-		nav
-			a(href="#") Journal
-			a(href="/gear") Gear
-			a(href="#") Beta
-
 
 	include includes/footer
+
+	script(src="//cdnjs.cloudflare.com/ajax/libs/zepto/1.0/zepto.min.js")
+	script(src="//cdnjs.cloudflare.com/ajax/libs/swipe/2.0/swipe.min.js")
+	script
+		(function() {
+			$('#slider').Swipe({
+				auto: 5000,
+				continuous: true
+			}).data('Swipe');
+		})(Zepto);

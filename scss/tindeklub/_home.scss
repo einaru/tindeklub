@@ -5,9 +5,28 @@
 article[class="home"] {
 	text-align: center;
 
+	.swipe {
+		overflow: hidden;
+		visibility: hidden;
+		position: relative;
+		width: 300px;
+		margin: 0 auto;
+
+		.swipe-wrap {
+			overflow: hidden;
+			position: relative;
+
+			> div {
+				float: left;
+				width: 100%;
+				position: relative;
+			}
+		}
+	}
+
 	img {
 		width: 100%;
-		max-width: 400px;
+		max-width: 300px;
 		height: auto;
 
 		&:hover {
