@@ -6,8 +6,69 @@ module.exports = function(grunt) {
 
 	grunt.initConfig({
 		pkg: grunt.file.readJSON("package.json"),
+
+		/*
+		 * Create directories
+		 */
+
+		mkdir: {
+			tmp: {
+				options: {
+					mode: 0700,
+					create: [
+						"tmp/cache",
+						"tmp/uploads"
+					]
+				}
+			},
+			gearimg: {
+				options: {
+					create: [
+						"public/img/gear"
+					]
+				}
+			}
+		},
+
+		/*
+		 * Cleanup
+		 */
+
+		clean: {
+			tmp: [
+				"tmp/cache",
+				"tmp/uploads",
+				"tmp"
+			],
+			gearimg: [
+				"public/img/gear"
+			]
+		},
+
+		/*
+		 * Express
+		 */
+		
+		nodemon: {
+			dev: {
+				options: {
+					file: "server.js",
+					ignoredFiles: ["node_modules/**"],
+					watchedExtensions: [".js"],
+					env: {
+						NODE_ENV: "development"
+					},
+					cwd: __dirname
+				}
+			}
+		},
+
+		/*
+		 * Stylesheets
+		 */
+
 		sass: {
-			dist: {
+			dev: {
 				options: {
 					style: "expanded"
 				},
@@ -15,7 +76,7 @@ module.exports = function(grunt) {
 					"public/css/igodstil.css": "scss/igodstil.scss"
 				}
 			},
-			prod: {
+			min: {
 				options: {
 					style: "compressed"
 				},
@@ -24,21 +85,30 @@ module.exports = function(grunt) {
 				}
 			}
 		},
+
+		/*
+		 * Watch
+		 */
+
 		watch: {
 			css: {
 				files: "scss/**/*.scss",
-				tasks: ["sass:dist"]
+				tasks: ["sass:dev"]
 			}
 		}
 	});
+	grunt.loadNpmTasks("grunt-mkdir");
+	grunt.loadNpmTasks("grunt-contrib-clean");
+	grunt.loadNpmTasks("grunt-nodemon");
 	grunt.loadNpmTasks("grunt-contrib-sass");
 	grunt.loadNpmTasks("grunt-contrib-watch");
-	grunt.registerTask("default", ["watch"]);
 
+	grunt.registerTask("default", ["nodemon"]);
 
 	/*
 	 * MongoDB
 	 */
+
 	grunt.registerTask("dbdrop", "drop the database", function() {
 		var done = this.async(),
 			mongoose = require("mongoose");
@@ -56,5 +126,4 @@ module.exports = function(grunt) {
 			});
 		});
 	});
-
 };
