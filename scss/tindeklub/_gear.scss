@@ -106,58 +106,52 @@ article[class*="gear"] {
 	// Image gallery
 	// ==============================================
 
-	#img-gallery {
+	.img-gallery {
+		overflow: hidden;
+		visibility: hidden;
 		position: relative;
+		width: 100%;
+		margin: 0 auto;
 
-		#img-container {
-			position: relative;
+		.img-wrapper {
 			overflow: hidden;
-			margin: 0 auto .5em;
-			background-color: $input-bg-color-dark;
-			border: 1px solid $input-border-color-dark;
+			position: relative;
 
-			img {
-				display: block;
-				width: 100%;
-				box-sizing: border-box;
-			}
-
-			#img-list {
+			> img {
 				position: relative;
-				left: 0;
+				float: left;
 				width: 100%;
-
-				ul {
-					@include list-reset;
-				}
+				height: auto;
+				//border: 1px solid #1a1a1a;
+				background-color: $input-bg-color-dark;
 			}
 		}
 
 		nav {
-			overflow: hidden;
-			display: inline-block;
+			margin: em(10) 0;
 
-			ul {
-				@include list-reset;
-			}
-
-			li {
-				border: 1px solid $input-border-color-dark;
+			a {
+				display: inline-block;
+				margin-right: 10px;
+				width: 20%;
+				max-width: 120px; // Thumbnail width
+				border: 1px solid;
+				border-color: $input-border-color-dark;
+				background-color: $input-bg-color-dark;
 				transition: all .3s ease-out;
 
-				&:hover,
-				&:focus {
+				&:hover {
 					border-color: $blue;
 				}
 
 				&.active {
 					border-color: $orange-dark;
 				}
-			}
 
-			img {
-				width: 100%;
-				height: auto;
+				img {
+					width: 100%;
+					height: auto;
+				}
 			}
 		}
 	}

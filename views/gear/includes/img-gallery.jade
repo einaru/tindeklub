@@ -1,12 +1,12 @@
 if gear.images.length
 	#images
 		h2 Images
-		#img-gallery
-			figure#img-container
-				img(src=gear.images[0].versions.medium.rel)
+		#slider.img-gallery
+			#wrapper.img-wrapper
+				for img in gear.images
+					img(data-imgsrc=img.versions.medium.rel)
+
 			nav
-				ul
-					for img in gear.images
-						li
-							a(href=img.versions.medium.rel)
-								img(src=img.versions.thumbnail.rel, alt=img.name)
+				for img in gear.images
+					a(href=img.versions.medium.rel)
+						img(src=img.versions.thumbnail.rel)
