@@ -10,7 +10,7 @@
 var gear = require("../app/controllers/gear"),
 	user = require("../app/controllers/user"),
 	log = require("../app/controllers/log"),
-	tinder = require("../lib/tinder");
+	tinder = require("../lib/tinder")();
 
 /*
  * Routes
@@ -45,7 +45,7 @@ module.exports = function(app, passport) {
 	// Index route
 	app.get("/", function(req, res) {
 		res.render("index", {
-			images: tinder()
+			images: tinder
 		});
 	});
 
