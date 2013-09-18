@@ -97,7 +97,8 @@ exports.show = function(req, res) {
 exports.edit = function(req, res) {
 	res.render("gear/edit", {
 		title: "Edit gear",
-		gear: req.gear
+		gear: req.gear,
+		metadata: req.metadata
 	});
 };
 
