@@ -30,8 +30,7 @@
 	function initImgGallery() {
 
 		var nav = $('#slider').find('nav'),
-			wrapper = $('#wrapper'),
-			imgPlaceholder = '/img/gear-img-placeholder.jpg';
+			wrapper = $('#wrapper');
 
 		yepnope({
 			load: 'http://cdnjs.cloudflare.com/ajax/libs/swipe/2.0/swipe.min.js',
@@ -67,7 +66,7 @@
 				img = imgs.eq(index),
 				imgSrc = img.data('imgsrc');
 
-			if (img.attr('src') === imgPlaceholder) {
+			if (img.attr('src') !== imgSrc) {
 				img.on('load', function() {
 					var $this = $(this);
 					$this.hide();
