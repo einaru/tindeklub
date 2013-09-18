@@ -1,0 +1,11 @@
+#tech-specs
+	h2 Tech specs
+	table
+		for val, key in gear.tech_specs
+			tr
+				th= fmt.str.capitalize(key)
+				td
+					!= val
+					- var meta = metadata[key]
+					if (meta.unit)
+						span.unit(title=meta.unit.name)= meta.unit.symbol

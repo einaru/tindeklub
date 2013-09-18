@@ -16,19 +16,25 @@ block main
 					|
 					a(href="#usage-log") Usage log
 
-		include includes/details
-		include includes/img-gallery
-		include includes/usage-log
+		.block.light
+			.container
+				include includes/details
+				include includes/tech-specs
+		.block.dark
+			.container
+				include includes/img-gallery
+				include includes/usage-log
 
 		footer
 			.container
 				#actions
 					a(href="#{'/gear/' + gear._id + '/edit'}") Edit #{gear.category}
 					- var action = "/gear/" + gear._id
-					form(action=action, method="post")
-						input(type="hidden", name="_method", value="put")
-						input(type="hidden", name="state", value="retired")
-						input(type="submit", data-action="retire", value="#{'Retire ' + gear.category}")
+					if gear.state != "retired"
+						form(action=action, method="post")
+							input(type="hidden", name="_method", value="put")
+							input(type="hidden", name="state", value="retired")
+							input(type="submit", data-action="retire", value="Retire " + gear.category)
 					form(action=action, method="post")
 						input(type="hidden", name="_method", value="delete")
-						input(type="submit", data-action="delete", value="#{'Delete ' + gear.category}")
+						input(type="submit", data-action="delete", value="Delete " + gear.category)

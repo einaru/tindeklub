@@ -76,7 +76,9 @@ article[class*="gear"] {
 
 	@include media($laptop) {
 		#details,
-		#tech-specs {
+		#tech-specs,
+		#images,
+		#usage-log {
 			@include span-columns(6);
 			@include omega(2n);
 		}

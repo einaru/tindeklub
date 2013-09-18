@@ -3,7 +3,8 @@
 // ==================================================
 
 article {
-	> header {
+	> header,
+	#user-form {
 		background-color: $white;
 
 		h1 {
@@ -29,25 +30,19 @@ article {
 // ==================================================
 
 .block {
-	background-color: darken($white, 7);
-	border-top: 1px solid;
-	border-bottom: 1px solid;
-	border-color: $block-border-color;
+	background-color: transparent;
+	border: none;
 
-	&.usage-log,
-	&.images {
+	&.light {
+		background-color: darken($white, 7);
+		border-top: 1px solid;
+		border-color: $block-border-color;
+	}
+
+	&.dark {
 		color: $white;
 		background-color: $block-bg-color-dark;
 		border-color: transparent;
-	}
-
-	&.details {
-		border-bottom-color: transparent;
-	}
-
-	&.user-form {
-		background-color: transparent;
-		border: none;
 	}
 }
 

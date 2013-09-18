@@ -2,10 +2,11 @@ extends ../layouts/nobanner
 
 block main
 	article.user-login
-		.block.user-form
+		.block
 			.container
 				#user-form
-					h1 Tindeklub login
+					h1 Tindeklub
+					h2 Log in
 					form(action="/login", method="post")
 						div
 							label(for="email") Email
