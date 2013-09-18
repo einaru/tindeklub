@@ -4,7 +4,7 @@ if gear.images.length
 		#slider.img-gallery
 			#wrapper.img-wrapper
 				for img in gear.images
-					img(data-imgsrc=img.versions.medium.rel)
+					img(data-imgsrc=img.versions.medium.rel, src="/img/gear-img-placeholder.jpg")
 
 			nav
 				for img in gear.images

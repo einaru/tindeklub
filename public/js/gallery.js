@@ -24,36 +24,60 @@
 		/*
 		 * Image gallery
 		 */
+		initImgGallery();
+	});
+
+	function initImgGallery() {
+
+		var nav = $('#slider').find('nav'),
+			wrapper = $('#wrapper'),
+			imgPlaceholder = '/img/gear-img-placeholder.jpg';
+
 		yepnope({
 			load: 'http://cdnjs.cloudflare.com/ajax/libs/swipe/2.0/swipe.min.js',
 			complete: function() {
 				if (window.Swipe) {
 					window.slider = new Swipe(document.getElementById('slider'), {
 						callback: function(index, element) {
-							console.log('index = ' + index);
 							updateNav(index);
 							loadImg(index + 1);
 						}
+					});
+					wrapper.on('touchstart', function(e) {
+						loadImg(window.slider.getPos() + 1);
 					});
 				}
 			}
 		});
 
-		var nav = $('#slider').find('nav');
-
 		nav.on('click', 'a', function(e) {
 			var index = $(this).index();
+
 			e.preventDefault();
 
-			slider.slide(index, 300);
+			loadImg(index);
+
+			slider.slide(index);
 
 			updateNav(index);
-			loadImg(index);
 		});
 
 		function loadImg(index) {
-			var img = $('#wrapper').find('img').eq(index);
-			img.attr('src', img.data('imgsrc'));
+			var imgs = $('#wrapper').find('img'),
+				img = imgs.eq(index),
+				imgSrc = img.data('imgsrc');
+
+			if (img.attr('src') === imgPlaceholder) {
+				img.on('load', function() {
+					var $this = $(this);
+					$this.hide();
+					console.log('loading image: ' + index);
+					$this.show();
+				}).on('error', function() {
+					console.log('error loading image: ' + index);
+				});
+				img.attr('src', imgSrc);
+			}
 		}
 
 		function updateNav(index) {
@@ -63,5 +87,5 @@
 
 		loadImg(0);
 		updateNav(0);
-	});
+	}
 })(Zepto);

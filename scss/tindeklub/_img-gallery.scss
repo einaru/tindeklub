@@ -1,0 +1,55 @@
+// ==============================================
+// Tindeklub > Image gallery
+// ==============================================
+
+.img-gallery {
+	overflow: hidden;
+	visibility: hidden;
+	position: relative;
+	width: 100%;
+	margin: 0 auto;
+
+	.img-wrapper {
+		overflow: hidden;
+		position: relative;
+
+		> img {
+			position: relative;
+			float: left;
+			width: 100%;
+			height: auto;
+			//border: 1px solid #1a1a1a;
+			background-color: $input-bg-color-dark;
+		}
+	}
+
+	nav {
+		margin: em(10) 0;
+
+		a {
+			display: inline-block;
+			margin-right: 10px;
+			width: 20%;
+			max-width: 128px; // Thumbnail width
+			border: 1px solid;
+			border-color: $input-border-color-dark;
+			background-color: $input-bg-color-dark;
+			transition: all .3s ease-out;
+
+			&:hover {
+				border-color: $blue;
+			}
+
+			&.active {
+				border-color: $orange-dark;
+			}
+
+			img {
+				width: 100%;
+				height: auto;
+			}
+		}
+	}
+}
+
+
