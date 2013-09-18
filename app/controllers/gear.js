@@ -103,7 +103,11 @@ exports.edit = function(req, res) {
 
 exports.update = function(req, res) {
 	var gear = req.gear,
+		images = [];
+
+	if (req.files) {
 		images = req.files.images;
+	}
 
 	gear = _.extend(gear, req.body);
 

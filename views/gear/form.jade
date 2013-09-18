@@ -51,7 +51,7 @@ block main
 								div
 									- var type = meta.type || "text"
 									- var name = "tech_specs[" + attr + "]"
-									- var value = gear.isNew ? "" : gear.tech_specs[name]
+									- var value = gear.isNew ? "" : gear.tech_specs[attr]
 									if type == "number"
 										input(type=type, name=name, min="0", value=value)
 									else
