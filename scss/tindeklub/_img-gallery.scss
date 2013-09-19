@@ -2,21 +2,49 @@
 // Tindeklub > Image gallery
 // ==============================================
 
-.img-gallery {
+// Swipe.js markup requirements:
+// https://github.com/bradbirdsall/Swipe
+//
+// <div class="img-gallery">
+//   <div class="img-wrapper">
+//     <img>
+//     ...
+//   </div>
+//   <nav>
+//     <a><img></a>
+//     ...
+//   </nav>
+// </div>
+
+$swipe-container: '.img-gallery';
+$swipe-wrapper:   '.img-wrapper';
+$swipe-element:   'img';
+
+@mixin swipejs-requirements {
 	overflow: hidden;
 	visibility: hidden;
 	position: relative;
-	width: 100%;
-	margin: 0 auto;
 
-	.img-wrapper {
+	#{$swipe-wrapper} {
 		overflow: hidden;
 		position: relative;
 
-		> img {
+		> #{$swipe-element} {
 			position: relative;
 			float: left;
 			width: 100%;
+		}
+	}
+};
+
+#{$swipe-container} {
+	@include swipejs-requirements;
+	width: 100%;
+	margin: 0 auto;
+
+	#{$swipe-wrapper} {
+
+		> #{$swipe-element} {
 			height: auto;
 			//border: 1px solid #1a1a1a;
 			background-color: $input-bg-color-dark;
@@ -30,7 +58,6 @@
 		a {
 			@include span-columns(2);
 			@include omega(6n);
-
 			max-width: 128px;
 			border-bottom: 2px solid;
 			border-color: $input-border-color-dark;
@@ -52,5 +79,3 @@
 		}
 	}
 }
-
-
