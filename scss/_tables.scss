@@ -6,12 +6,12 @@ table {
 	width: 100%;
 	thead {
 		tr {
-			border-bottom: 2px solid $table-border-color;
+			border-bottom: 4px solid $table-border-color;
 		}
 	}
 	tbody {
 		tr {
-			border-bottom: 1px solid $table-border-color;
+			border-bottom: 2px solid $table-border-color;
 
 			&:last-child {
 				border-bottom: none;
