@@ -24,13 +24,14 @@
 	}
 
 	nav {
-		margin: em(10) 0;
+		@include outer-container;
+		@include pad(default 0);
 
 		a {
-			display: inline-block;
-			margin-right: 10px;
-			width: 20%;
-			max-width: 128px; // Thumbnail width
+			@include span-columns(2);
+			@include omega(6n);
+
+			max-width: 128px;
 			border-bottom: 2px solid;
 			border-color: $input-border-color-dark;
 			background-color: $input-bg-color-dark;

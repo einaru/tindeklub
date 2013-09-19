@@ -38,7 +38,7 @@ module.exports = function(grunt) {
 			tmp: [
 				"tmp/cache",
 				"tmp/uploads",
-				"tmp"
+				//"tmp" // Might want to keep some tmp file!?
 			],
 			gearimg: [
 				"public/img/gear"
