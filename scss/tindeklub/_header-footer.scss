@@ -78,8 +78,22 @@ header[role=banner] {
 
 // Footer
 footer[role=contentinfo] {
+	text-align: center;
+
+	.goto-top {
+		display: block;
+		margin: 0 auto;
+		background-image: url(../img/goto-top.svg);
+		background-size: cover;
+		width: 72px;
+		height: 72px;
+
+		&:hover {
+			background-image: url(../img/goto-top-hover.svg);
+		}
+	}
+
 	.copyright {
-		text-align: center;
 		font-size: 0.9em;
 	}
 }
