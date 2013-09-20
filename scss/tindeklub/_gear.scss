@@ -101,64 +101,11 @@ article[class*="gear"] {
 		a {
 			@include button;
 		}
-	}
 
-	// Image gallery
-	// ==============================================
-
-	#img-gallery {
-		position: relative;
-
-		#img-container {
-			position: relative;
-			overflow: hidden;
-			margin: 0 auto .5em;
-			background-color: $input-bg-color-dark;
-			border: 1px solid $input-border-color-dark;
-
-			img {
-				display: block;
-				width: 100%;
-				box-sizing: border-box;
-			}
-
-			#img-list {
-				position: relative;
-				left: 0;
-				width: 100%;
-
-				ul {
-					@include list-reset;
-				}
-			}
-		}
-
-		nav {
-			overflow: hidden;
+		input[type="number"] {
 			display: inline-block;
-
-			ul {
-				@include list-reset;
-			}
-
-			li {
-				border: 1px solid $input-border-color-dark;
-				transition: all .3s ease-out;
-
-				&:hover,
-				&:focus {
-					border-color: $blue;
-				}
-
-				&.active {
-					border-color: $orange-dark;
-				}
-			}
-
-			img {
-				width: 100%;
-				height: auto;
-			}
+			width: em(70);
+			margin: 0 em(10);
 		}
 	}
 

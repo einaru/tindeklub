@@ -1,12 +1,13 @@
 if gear.images.length
+	- var placeholder = "data:image/;base64,/9j/4AAQSkZJRgABAQEAAQABAAD/2wBDAAMCAgICAgMCAgIDAwMDBAYEBAQEBAgGBgUGCQgKCgkICQkKDA8MCgsOCwkJDRENDg8QEBEQCgwSExIQEw8QEBD/wAALCAADAAQBAREA/8QAFAABAAAAAAAAAAAAAAAAAAAACP/EABQQAQAAAAAAAAAAAAAAAAAAAAD/2gAIAQEAAD8AJT//2Q=="
 	#images
 		h2 Images
-		#img-gallery
-			figure#img-container
-				img(src=gear.images[0].versions.medium.rel)
+		#slider.img-gallery
+			#wrapper.img-wrapper
+				for img in gear.images
+					img(data-imgsrc=img.versions.medium.rel, src=placeholder)
+
 			nav
-				ul
-					for img in gear.images
-						li
-							a(href=img.versions.medium.rel)
-								img(src=img.versions.thumbnail.rel, alt=img.name)
+				for img in gear.images
+					a(href=img.versions.medium.rel)
+						img(src=img.versions.thumbnail.rel)

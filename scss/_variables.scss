@@ -67,7 +67,7 @@ $padding:                 $padding-vertical $padding-horizontal;
 
 // Fonts
 // ==================================================
-$font-family-sans:        "Open Sans", $helvetica;
+$font-family-sans:        "Ubuntu", "Open Sans", $helvetica;
 $font-family-serif:       $georgia;
 
 // Tables
@@ -86,3 +86,4 @@ $input-border-color-dark: darken(#222, 2);
 $block-bg-color:          darken($white, 7);
 $block-bg-color-dark:     #222;
 $block-border-color:      darken($white, 15);
+$block-border-color-dark: darken(#222, 2);

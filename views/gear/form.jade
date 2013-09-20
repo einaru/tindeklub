@@ -12,7 +12,7 @@ block main
 			input(type="hidden", name="category", value=gear.category)
 			if (!gear.isNew)
 				input(type="hidden", name="_method", value="put")
-			.block.details
+			.block.light
 				.container
 					#details
 						h2 Details
@@ -68,5 +68,10 @@ block main
 			footer
 				.container
 					#actions
+						if (gear.isNew)
+							label(for="n_items")
+								| Add
+								input(type="number" name="n_items", value="1" min="1")
+								| items
 						input(type="submit", value="Save")
 						a(href=action) Cancel

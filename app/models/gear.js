@@ -11,7 +11,8 @@ var mongoose = require("mongoose"),
 	mkdirp = require("mkdirp"),
 	path = require("path"),
 	fs = require("fs"),
-	gm = require("gm"),
+	// TODO do a check for gm and use imageMagick as fallback
+	gm = require("gm").subClass({ imageMagick: true }),
 	rmdir = require("../../lib/rmdir"),
 	Schema = mongoose.Schema;
 
@@ -157,7 +158,9 @@ GearSchema.methods = {
 			// Create medium sized image
 			var medPath = path.join(_dir, "medium", file.name);
 			mkdirp.sync(path.dirname(medPath));
-			gm(_path).resize(500).noProfile()
+			gm(_path)
+				.resize(500)
+				.noProfile()
 				.write(medPath, function(err) {
 					if (err) console.log("Error resizing image:\n%s", err);
 				});
@@ -165,7 +168,11 @@ GearSchema.methods = {
 			// Create thumbnail
 			var thumbPath = path.join(_dir, "thumb", file.name);
 			mkdirp.sync(path.dirname(thumbPath));
-			gm(_path).resize(400).gravity("Center").crop(128, 128, 0, 0).noProfile()
+			gm(_path)
+				.resize(300)
+				.gravity("Center")
+				.crop(128, 128, 0, 0)
+				.noProfile()
 				.write(thumbPath, function(err) {
 					if (err) console.log("Error creating thumbnail:\n%s", err);
 				});

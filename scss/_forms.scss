@@ -14,9 +14,11 @@ input[type=url],
 input[type=password],
 select,
 textarea {
-	border: 1px solid $input-border-color;
+	border: none;
+	border-bottom: 2px solid $input-border-color;
 	background-color: $input-bg-color;
-	border-radius: $border-radius;
+	border-radius: 0; //$border-radius;
 	padding: $padding;
 	width: 100%;
+	outline: none;
 }

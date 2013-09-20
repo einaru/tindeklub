@@ -5,7 +5,7 @@ block main
 		article.home
 			div
 				.container
-					h1 Tindeklub
+					h1= siteTitle
 
 					#slider.swipe
 						.swipe-wrap
@@ -35,7 +35,7 @@ block main
 
 	script(src="//cdnjs.cloudflare.com/ajax/libs/zepto/1.0/zepto.min.js")
 	script(src="//cdnjs.cloudflare.com/ajax/libs/swipe/2.0/swipe.min.js")
-	script
+	script.
 		(function() {
 			var nav = $('#slider').find('nav');
 
