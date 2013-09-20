@@ -68,5 +68,10 @@ block main
 			footer
 				.container
 					#actions
+						if (gear.isNew)
+							label(for="n_items")
+								| Add
+								input(type="number" name="n_items", value="1" min="1")
+								| items
 						input(type="submit", value="Save")
 						a(href=action) Cancel

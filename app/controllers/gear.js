@@ -66,25 +66,31 @@ exports.newCategory = function(req, res) {
 };
 
 exports.create = function(req, res) {
-	var gear = new Gear(req.body),
-		images = req.files.images;
+	var data = req.body,
+		user = req.user,
+		images = req.files.images,
+		n_items = req.body.n_items || 1,
+		gear;
 
-	gear.user = req.user;
-
-	gear.uploadAndSave(images, function(err) {
-		if (!err) {
-			req.flash("info", "Successfully added new gear");
-			return res.redirect("/gear/" + gear._id);
-		}
-
-		console.log(err);
-		res.render("gear/new-category", {
-			title: "New gear",
-			gear: gear,
-			metadata: req.metadata,
-			errors: err
+	while(n_items--) {
+		gear = new Gear(data);
+		gear.user = user;
+		gear.uploadAndSave(images, function(err) {
+			if (!err) {
+				req.flash("info", "Successfully added new gear");
+				//return res.redirect("/gear/" + gear._id);
+			} else {
+				console.log(err);
+				return res.render("gear/new-category", {
+					title: "New gear",
+					gear: gear,
+					metadata: req.metadata,
+					errors: err
+				});
+			}
 		});
-	});
+	}
+	res.redirect("/gear/" + gear._id);
 };
 
 exports.show = function(req, res) {
