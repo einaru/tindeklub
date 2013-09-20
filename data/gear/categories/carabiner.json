@@ -1,6 +1,8 @@
 {
 	"name": "carabiner",
 	"attributes": {
+		"type": { "type": "text" },
+		"shape": { "type": "text" },
 		"color":                    { "type": "text"},
 		"weight":                   { "type": "number", "unit": { "symbol": "g",  "name": "gram"}},
 		"gate_opening":             { "type": "number", "unit": { "symbol": "mm", "name": "millimeter" }},
