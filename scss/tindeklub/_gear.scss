@@ -101,6 +101,12 @@ article[class*="gear"] {
 		a {
 			@include button;
 		}
+
+		input[type="number"] {
+			display: inline-block;
+			width: em(70);
+			margin: 0 em(10);
+		}
 	}
 
 	// Units

@@ -58,6 +58,7 @@ $swipe-element:   'img';
 		a {
 			@include span-columns(2);
 			@include omega(6n);
+			margin-bottom: 2.5%;
 			max-width: 128px;
 			border-bottom: 2px solid;
 			border-color: $input-border-color-dark;
