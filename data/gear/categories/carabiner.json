@@ -3,12 +3,12 @@
 	"attributes": {
 		"type": { "type": "text" },
 		"shape": { "type": "text" },
-		"color":                    { "type": "text"},
-		"weight":                   { "type": "number", "unit": { "symbol": "g",  "name": "gram"}},
-		"gate_opening":             { "type": "number", "unit": { "symbol": "mm", "name": "millimeter" }},
+		"color":  { "type": "text"},
+		"weight": { "type": "number", "unit": { "symbol": "g",  "name": "gram"}},
+		"gate_opening": { "type": "number", "unit": { "symbol": "mm", "name": "millimeter" }},
 		"breaking_load_lengthwise": { "type": "number", "unit": { "symbol": "kN", "name": "kilonewton" }},
-		"breaking_load_across":     { "type": "number", "unit": { "symbol": "kN", "name": "kilonewton" }},
-		"breaking_load_open":       { "type": "number", "unit": { "symbol": "kN", "name": "kilonewton" }}
+		"breaking_load_across": { "type": "number", "unit": { "symbol": "kN", "name": "kilonewton" }},
+		"breaking_load_open": { "type": "number", "unit": { "symbol": "kN", "name": "kilonewton" }}
 	}
 }
 
