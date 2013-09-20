@@ -49,6 +49,7 @@ module.exports = function(app, config, passport) {
 		app.use(app.router);
 
 		// Locals
+		app.locals.siteTitle = "Tindeklub";
 		app.locals.fmt = require(path.join(config.root, "/lib/fmt"));
 		app.locals.md = marked;
 

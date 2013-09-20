@@ -31,13 +31,13 @@ article {
 
 .block {
 	background-color: transparent;
-	border: none;
+	border-width: 1px;
+	border-style: solid none;
+	border-color: transparent;
 
 	&.light {
 		background-color: darken($white, 7);
-		border-top: 1px solid;
-		border-bottom: 1px solid;
-		border-color: $block-border-color;
+		border-color: darken($white, 10);
 	}
 
 	&.dark {
